@@ -1,0 +1,21 @@
+# IntelliJ IDEA-specific files
+.idea/
+*.iml
+
+# Build files
+/build/
+out/
+
+# Logs
+logs/
+*.log
+
+# Gradle
+.gradle/
+.gradle/cache/
+.gradle/init.gradle
+
+# Minecraft specific
+run/
+config/
+mods/
