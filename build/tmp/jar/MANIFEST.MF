@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Specification-Title: ddi
+Specification-Vendor: A_Niki3
+Specification-Version: 1
+Implementation-Title: deepdarkindustry
+Implementation-Version: 1.0.0-alpha
+Implementation-Vendor: A_Niki3
+Implementation-Timestamp: 2024-09-24T01:39:55+0900
+

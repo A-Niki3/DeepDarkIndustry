@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/deepdarkindustry.iml" filepath="$PROJECT_DIR$/.idea/modules/deepdarkindustry.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/deepdarkindustry.main.iml" filepath="$PROJECT_DIR$/.idea/modules/deepdarkindustry.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/deepdarkindustry.test.iml" filepath="$PROJECT_DIR$/.idea/modules/deepdarkindustry.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/org.niki3smod.deepdarkindustry.main.iml" filepath="$PROJECT_DIR$/.idea/modules/org.niki3smod.deepdarkindustry.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/org.niki3smod.deepdarkindustry.test.iml" filepath="$PROJECT_DIR$/.idea/modules/org.niki3smod.deepdarkindustry.test.iml" />
+    </modules>
+  </component>
+</project>
