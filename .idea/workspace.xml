@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="191b617c-6ed5-41a0-8b6c-b0ca5ef68136" name="変更" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="191b617c-6ed5-41a0-8b6c-b0ca5ef68136" name="変更" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -85,7 +83,7 @@
     "Gradle.E:/program/java/minecraft/1.19.2/DeepDarkIndustry [:createMcpToSrg :createMcpToSrg :createMcpToSrg].executor": "Run",
     "Gradle.E:/program/java/minecraft/1.19.2/DeepDarkIndustry [wrapper genIntellijRuns].executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "project.structure.last.edited": "プロジェクト",
