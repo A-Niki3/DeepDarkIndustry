@@ -25,6 +25,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.slf4j.Logger;
+import org.niki3.ddi.creative.creative_add;
 
 @Mod(Ddi.MODID)
 public class Ddi {
@@ -40,6 +41,7 @@ public class Ddi {
         BLOCKS.register(modEventBus);
         ITEMS.register(modEventBus);
 
+        creative_add.ITEMS.register(modEventBus);
         MinecraftForge.EVENT_BUS.register(this);
     }
 
