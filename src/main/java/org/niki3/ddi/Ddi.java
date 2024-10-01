@@ -33,7 +33,6 @@ public class Ddi {
 
         creative_add.ITEMS.register(modEventBus);
         MinecraftForge.EVENT_BUS.register(this);
-        //MinecraftForge.EVENT_BUS.register(cutter_shard.class);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
