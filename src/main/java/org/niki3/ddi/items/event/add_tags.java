@@ -23,6 +23,9 @@ public class add_tags extends TagsProvider<Item> {
     public static final TagKey<Item> VIBRATION_SILENCER = create_tag(false,"vibration_silencer");
     public static final TagKey<Item> FORGE_BOOTS = create_tag(true,"boots");
     public static final TagKey<Item> FORGE_ARMORS_BOOTS = create_tag(true,"armors/boots");
+    public static final TagKey<Item> FORGE_TOOLS = create_tag(true,"tools");
+    public static final TagKey<Item> FORGE_TOOLS_PICKAXE = create_tag(true,"tools/pickaxe");
+    public static final TagKey<Item> DDI_TOOLS = create_tag(false,"tools");
 
     public static TagKey<Item> create_tag(boolean forge, String name){
         if (forge){
@@ -47,5 +50,13 @@ public class add_tags extends TagsProvider<Item> {
                 .add(creative_add.WOOL_BOOTS.get());
         this.tag(FORGE_ARMORS_BOOTS)
                 .add(creative_add.WOOL_BOOTS.get());
+
+        //crystal cutter
+        this.tag(FORGE_TOOLS)
+                .add(creative_add.CRYSTAL_CUTTER.get());
+        this.tag(FORGE_TOOLS_PICKAXE)
+                .add(creative_add.CRYSTAL_CUTTER.get());
+        this.tag(DDI_TOOLS)
+                .add(creative_add.CRYSTAL_CUTTER.get());
     }
 }
