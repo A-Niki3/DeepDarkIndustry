@@ -3,8 +3,11 @@
   "minVersion": "0.8",
   "package": "org.niki3.ddi.mixin",
   "mixins": [
-    "gameevent_mixin"
+    "vib_mixin"
   ],
+  "injectors": {
+    "defaultRequire": 1
+  },
   "client": [],
   "server": []
 }

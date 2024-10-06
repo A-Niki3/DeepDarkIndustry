@@ -18,6 +18,10 @@ java {
     toolchain.languageVersion = JavaLanguageVersion.of(17)
 }
 
+mixin {
+    config "mixins.ddi.json"
+}
+
 minecraft {
     mappings channel: mapping_channel, version: mapping_version
 
