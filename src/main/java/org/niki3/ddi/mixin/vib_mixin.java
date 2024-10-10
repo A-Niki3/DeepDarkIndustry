@@ -15,7 +15,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(VibrationListener.class)
 public class vib_mixin {
     /*
-    @Inject(method = "handleGameEvent",at = @At("RETURN"), cancellable = true)
+    @Inject(method = "handleGameEvent",at = @At("RETURN"))
     private void onHandleGameEvent(ServerLevel level, GameEvent.Message message, CallbackInfoReturnable<Boolean> cir){
         System.out.println("GameEvent:" + message.gameEvent().getName());
         //スカルクセンサーのイベント：sculk_sensor_tendrils_clicking
