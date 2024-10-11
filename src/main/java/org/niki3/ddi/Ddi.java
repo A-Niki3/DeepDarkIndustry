@@ -17,7 +17,6 @@ import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
-import org.niki3.ddi.client.echo_locator_client;
 import org.niki3.ddi.items.event.add_tags;
 import org.niki3.ddi.server.PacketHandler;
 import org.slf4j.Logger;
@@ -40,7 +39,6 @@ public class Ddi {
 
         creative_add.ITEMS.register(modEventBus);
         MinecraftForge.EVENT_BUS.register(this);
-        MinecraftForge.EVENT_BUS.register(echo_locator_client.class);
         PacketHandler.registerPackets();
 
     }

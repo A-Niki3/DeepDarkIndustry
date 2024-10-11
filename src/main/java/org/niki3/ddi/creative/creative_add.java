@@ -6,6 +6,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.niki3.ddi.Ddi;
+import org.niki3.ddi.items.EchoLocatorItem;
 import org.niki3.ddi.items.crystal_cutter;
 import org.niki3.ddi.items.armors;
 import org.niki3.ddi.items.wool_boots;
@@ -34,7 +35,7 @@ public class creative_add {
     public static final RegistryObject<Item> SCULK_GEAR = ITEMS.register("sculk_gear",
             () -> new Item(new Item.Properties().tab(CREATIVE_TAB)));
     public static final RegistryObject<Item> ECHO_LOCATOR = ITEMS.register("echo_locator",
-            () -> new Item(new Item.Properties().tab(CREATIVE_TAB)));
+            () -> new EchoLocatorItem(new Item.Properties().tab(CREATIVE_TAB)));
     public static final RegistryObject<Item> WOOL_BOOTS = ITEMS.register("wool_boots",
             () -> new wool_boots(armors.WOOL, EquipmentSlot.FEET,new Item.Properties().tab(CREATIVE_TAB)));
 }
