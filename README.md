@@ -1,6 +1,9 @@
 # Deep Dark Industry README(EN & JP)
 A mod for MC 1.19.2 forge<br>
-日本語版は[下部](https://github.com/A-Niki3/DeepDarkIndustry/blob/main/README.md#%E6%A6%82%E8%A6%81)にあります。
+日本語版は[下部](https://github.com/A-Niki3/DeepDarkIndustry/blob/main/README.md#%E6%A6%82%E8%A6%81)にあります。<br>
+Download mod
+* **GitHub releases**: https://github.com/A-Niki3/DeepDarkIndustry/releases/
+* **CurseForge**: https://www.curseforge.com/minecraft/mc-mods/deep-dark-industry
 ## [about] <br>
 this is a project of minecraft forge mod "Deep Dark Industry" as "ddi" repository <br>
 ddi is an industrial mod based on Deep dark and Ancient city <br>
