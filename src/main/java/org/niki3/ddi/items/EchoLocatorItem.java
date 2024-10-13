@@ -17,7 +17,9 @@ public class EchoLocatorItem extends Item {
 
     @Override
     public @NotNull InteractionResultHolder<ItemStack> use(@NotNull Level level, Player player, @NotNull InteractionHand hand){
-        PacketHandler.INSTANCE.sendToServer(new LocatorPacket());
+        if(!level.isClientSide()){
+            PacketHandler.INSTANCE.sendToServer(new LocatorPacket());
+        }
         return InteractionResultHolder.success(player.getItemInHand(hand));
     }
 }
