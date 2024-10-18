@@ -12,7 +12,7 @@ import java.util.function.Consumer;
 
 public class AdvProvider extends AdvancementProvider {
 
-    private final List<Consumer<Consumer<Advancement>>> tabs = ImmutableList.of(new aExpAdv(),new bMecAdv(),new cAdvAdv(),new dLosAdv());
+    private final List<Consumer<Consumer<Advancement>>> AdvancementTabs = ImmutableList.of(new aExpAdv(),new bMecAdv(),new cAdvAdv(),new dLosAdv());
 
     public AdvProvider(DataGenerator generator, ExistingFileHelper existingFileHelper) {
         super(generator, existingFileHelper);
@@ -20,8 +20,8 @@ public class AdvProvider extends AdvancementProvider {
 
     @Override
     protected void registerAdvancements(@NotNull Consumer<Advancement> consumer, net.minecraftforge.common.data.@NotNull ExistingFileHelper existingFileHelper){
-        for (Consumer<Consumer<Advancement>> con : this.tabs){
-            con.accept(consumer);
+        for (Consumer<Consumer<Advancement>> list : this.AdvancementTabs){
+            list.accept(consumer);
         }
     }
 }
