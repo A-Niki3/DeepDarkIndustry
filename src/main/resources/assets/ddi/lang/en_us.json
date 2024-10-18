@@ -3,5 +3,8 @@
   "item.ddi.crystal_cutter": "Crystal cutter",
   "item.ddi.echo_locator": "Echo locator",
   "item.ddi.sculk_gear": "Sculk gear",
-  "item.ddi.wool_boots": "Wool boots"
+  "item.ddi.wool_boots": "Wool boots",
+
+  "advancements.ddi.exp.root.title": "Deep Dark Industry",
+  "advancements.ddi.exp.root.desc": "This is DDI"
 }

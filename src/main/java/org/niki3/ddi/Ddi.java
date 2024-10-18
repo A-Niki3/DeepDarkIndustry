@@ -17,6 +17,7 @@ import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
+import org.niki3.ddi.advancement.AdvProvider;
 import org.niki3.ddi.items.event.add_tags;
 import org.niki3.ddi.server.PacketHandler;
 import org.slf4j.Logger;
@@ -55,6 +56,7 @@ public class Ddi {
 
         // タグの生成プロバイダを追加
         generator.addProvider(event.includeServer(), new add_tags(generator, existingFileHelper));
+        generator.addProvider(event.includeServer(), new AdvProvider(generator,existingFileHelper));
     }
 
     @SubscribeEvent

@@ -1,0 +1,41 @@
+{
+  "criteria": {
+    "in_overworld": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "dimension": "minecraft:overworld"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "background": "minecraft:textures/block/blast_furnace_top.png",
+    "description": {
+      "translate": "advancements.ddi.exp.root.desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "ddi:echo_locator"
+    },
+    "show_toast": false,
+    "title": {
+      "translate": "advancements.ddi.exp.root.title"
+    }
+  },
+  "requirements": [
+    [
+      "in_overworld"
+    ]
+  ]
+}
