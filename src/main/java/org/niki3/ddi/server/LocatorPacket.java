@@ -44,7 +44,7 @@ public class LocatorPacket {
                             start_pos,
                             5000,
                             100,
-                            16
+                            8
                     );
                     //System.out.println(result);
                     if(result != null){
