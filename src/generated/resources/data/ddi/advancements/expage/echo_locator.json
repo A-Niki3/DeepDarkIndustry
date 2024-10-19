@@ -1,0 +1,37 @@
+{
+  "parent": "ddi:expage/root",
+  "criteria": {
+    "crafted_item": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ddi:echo_locator"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.ddi.exp.root.task3_desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "ddi:echo_locator"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.ddi.exp.root.task3"
+    }
+  },
+  "requirements": [
+    [
+      "crafted_item"
+    ]
+  ]
+}

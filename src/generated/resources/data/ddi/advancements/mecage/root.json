@@ -1,0 +1,37 @@
+{
+  "criteria": {
+    "complete_ExpAge": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:echo_shard"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "background": "minecraft:textures/block/deepslate.png",
+    "description": {
+      "translate": "advancements.ddi.mec.root.desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "ddi:sculk_gear"
+    },
+    "show_toast": false,
+    "title": {
+      "translate": "advancements.ddi.mec.root.title"
+    }
+  },
+  "requirements": [
+    [
+      "complete_ExpAge"
+    ]
+  ]
+}

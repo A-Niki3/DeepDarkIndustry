@@ -1,0 +1,37 @@
+{
+  "parent": "ddi:mecage/root",
+  "criteria": {
+    "crafted_item": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ddi:sculk_gear"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.ddi.mec.root.task1_desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "ddi:sculk_gear"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.ddi.mec.root.task1"
+    }
+  },
+  "requirements": [
+    [
+      "crafted_item"
+    ]
+  ]
+}

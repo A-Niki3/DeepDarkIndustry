@@ -6,5 +6,18 @@
   "item.ddi.wool_boots": "Wool boots",
 
   "advancements.ddi.exp.root.title": "Deep Dark Industry",
-  "advancements.ddi.exp.root.desc": "This is DDI"
+  "advancements.ddi.exp.root.desc": "This is DDI",
+  "advancements.ddi.exp.root.task1": "Versatile dedicated tools",
+  "advancements.ddi.exp.root.task1_desc": "Mining and attacking all in one!",
+  "advancements.ddi.exp.root.task2": "Ninja's stealthy footsteps",
+  "advancements.ddi.exp.root.task2_desc": "Quietly so as not to wake up the Warden",
+  "advancements.ddi.exp.root.task3": "I can hear Sculk singing",
+  "advancements.ddi.exp.root.task3_desc": "Search of the Deep Dark",
+  "advancements.ddi.exp.root.task4": "Get shard",
+  "advancements.ddi.exp.root.task4_desc": "Use the crystal cutter to get the shards",
+
+  "advancements.ddi.mec.root.title": "Beginning of the Industrial",
+  "advancements.ddi.mec.root.desc": "The real DDI",
+  "advancements.ddi.mec.root.task1": "Industrial Idol",
+  "advancements.ddi.mec.root.task1_desc": "Nice to meet you"
 }

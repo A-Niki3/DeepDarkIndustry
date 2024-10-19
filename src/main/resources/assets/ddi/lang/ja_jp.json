@@ -5,5 +5,18 @@
   "item.ddi.wool_boots": "ウールブーツ",
 
   "advancements.ddi.exp.root.title": "Deep Dark Industry",
-  "advancements.ddi.exp.root.desc": "これがDDIだ！"
+  "advancements.ddi.exp.root.desc": "これがDDIだ！",
+  "advancements.ddi.exp.root.task1": "万能な専用ツール",
+  "advancements.ddi.exp.root.task1_desc": "採掘も攻撃もこれ一本！",
+  "advancements.ddi.exp.root.task2": "抜き足差し足忍び足",
+  "advancements.ddi.exp.root.task2_desc": "ウォーデンにバレないように",
+  "advancements.ddi.exp.root.task3": "スカルクの歌声が聴こえる！",
+  "advancements.ddi.exp.root.task3_desc": "さぁディープダークを探し当てよう",
+  "advancements.ddi.exp.root.task4": "欠片を掘り出せ!!",
+  "advancements.ddi.exp.root.task4_desc": "クリスタルカッターで欠片を掘り出そう",
+
+  "advancements.ddi.mec.root.title": "工業の夜明けぜよ",
+  "advancements.ddi.mec.root.desc": "DDIの本番",
+  "advancements.ddi.mec.root.task1": "工業のアイドル♡",
+  "advancements.ddi.mec.root.task1_desc": "歯車先輩お世話になるっす！"
 }
