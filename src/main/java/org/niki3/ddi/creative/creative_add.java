@@ -19,7 +19,7 @@ public class creative_add {
     public static final CreativeModeTab CREATIVE_TAB = new CreativeModeTab("ddi_tab") {
         @Override
         public ItemStack makeIcon() {
-            return new ItemStack(creative_add.SCULK_GEAR.get()); // タブのアイコンをダイヤモンドに設定
+            return new ItemStack(creative_add.SCULK_GEAR.get());
         }
     };
 
