@@ -9,7 +9,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
-import org.niki3.ddi.creative.creative_add;
+import org.niki3.ddi.items.addItem;
 
 import java.util.function.Consumer;
 
@@ -33,7 +33,7 @@ public class aExpAdv implements Consumer<Consumer<Advancement>> {
         Advancement task1 = Advancement.Builder.advancement()
                 .parent(start)
                 .display(
-                        creative_add.CRYSTAL_CUTTER.get(),
+                        addItem.CRYSTAL_CUTTER.get(),
                         Component.translatable("advancements.ddi.exp.root.task1"),
                         Component.translatable("advancements.ddi.exp.root.task1_desc"),
                         null,
@@ -42,13 +42,13 @@ public class aExpAdv implements Consumer<Consumer<Advancement>> {
                 )
                 .addCriterion(
                         "crafted_item",
-                        InventoryChangeTrigger.TriggerInstance.hasItems(creative_add.CRYSTAL_CUTTER.get())
+                        InventoryChangeTrigger.TriggerInstance.hasItems(addItem.CRYSTAL_CUTTER.get())
                 )
                 .save(t, "ddi:expage/cutter");
         Advancement task2 = Advancement.Builder.advancement()
                 .parent(start)
                 .display(
-                        creative_add.WOOL_BOOTS.get(),
+                        addItem.WOOL_BOOTS.get(),
                         Component.translatable("advancements.ddi.exp.root.task2"),
                         Component.translatable("advancements.ddi.exp.root.task2_desc"),
                         null,
@@ -57,13 +57,13 @@ public class aExpAdv implements Consumer<Consumer<Advancement>> {
                 )
                 .addCriterion(
                         "crafted_item",
-                        InventoryChangeTrigger.TriggerInstance.hasItems(creative_add.WOOL_BOOTS.get())
+                        InventoryChangeTrigger.TriggerInstance.hasItems(addItem.WOOL_BOOTS.get())
                 )
                 .save(t, "ddi:expage/wool_boots");
         Advancement task3 = Advancement.Builder.advancement()
                 .parent(start)
                 .display(
-                        creative_add.ECHO_LOCATOR.get(),
+                        addItem.ECHO_LOCATOR.get(),
                         Component.translatable("advancements.ddi.exp.root.task3"),
                         Component.translatable("advancements.ddi.exp.root.task3_desc"),
                         null,
@@ -72,7 +72,7 @@ public class aExpAdv implements Consumer<Consumer<Advancement>> {
                 )
                 .addCriterion(
                         "crafted_item",
-                        InventoryChangeTrigger.TriggerInstance.hasItems(creative_add.ECHO_LOCATOR.get())
+                        InventoryChangeTrigger.TriggerInstance.hasItems(addItem.ECHO_LOCATOR.get())
                 )
                 .save(t, "ddi:expage/echo_locator");
         Advancement task4 = Advancement.Builder.advancement()

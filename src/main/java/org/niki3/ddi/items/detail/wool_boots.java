@@ -1,11 +1,11 @@
-package org.niki3.ddi.items;
+package org.niki3.ddi.items.detail;
 
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.Enchantments;
-import org.niki3.ddi.creative.creative_add;
+import org.niki3.ddi.items.addItem;
 
 public class wool_boots extends ArmorItem {
     public wool_boots(ArmorMaterial material,EquipmentSlot slot,Item.Properties properties){
@@ -13,7 +13,7 @@ public class wool_boots extends ArmorItem {
     }
     @Override
     public boolean canApplyAtEnchantingTable(ItemStack stack, Enchantment enchantment){
-        if(stack.getItem() == creative_add.WOOL_BOOTS.get()){
+        if(stack.getItem() == addItem.WOOL_BOOTS.get()){
             return enchantment == Enchantments.UNBREAKING ||
                     enchantment == Enchantments.MENDING ||
                     enchantment == Enchantments.DEPTH_STRIDER ||
@@ -33,7 +33,7 @@ public class wool_boots extends ArmorItem {
 
     @Override
     public boolean isRepairable(ItemStack stack){
-        return stack.getItem() == creative_add.WOOL_BOOTS.get();
+        return stack.getItem() == addItem.WOOL_BOOTS.get();
     }
 
     @Override

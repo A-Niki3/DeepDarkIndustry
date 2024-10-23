@@ -1,4 +1,4 @@
-package org.niki3.ddi.items;
+package org.niki3.ddi.items.detail;
 
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
@@ -16,7 +16,7 @@ public class EchoLocatorItem extends Item {
     }
 
     @Override
-    public @NotNull InteractionResultHolder<ItemStack> use(@NotNull Level level, Player player, @NotNull InteractionHand hand){
+    public @NotNull InteractionResultHolder<ItemStack> use(@NotNull Level level, @NotNull Player player, @NotNull InteractionHand hand){
         if(!level.isClientSide()){
             PacketHandler.INSTANCE.sendToServer(new LocatorPacket());
         }

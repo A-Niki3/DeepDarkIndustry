@@ -8,7 +8,7 @@ import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.common.data.ExistingFileHelper;
-import org.niki3.ddi.creative.creative_add;
+import org.niki3.ddi.items.addItem;
 
 public class add_tags extends TagsProvider<Item> {
     public add_tags(DataGenerator generator, ExistingFileHelper existingFileHelper){
@@ -45,18 +45,18 @@ public class add_tags extends TagsProvider<Item> {
 
         //wool boots
         this.tag(VIBRATION_SILENCER)
-                .add(creative_add.WOOL_BOOTS.get());
+                .add(addItem.WOOL_BOOTS.get());
         this.tag(FORGE_BOOTS)
-                .add(creative_add.WOOL_BOOTS.get());
+                .add(addItem.WOOL_BOOTS.get());
         this.tag(FORGE_ARMORS_BOOTS)
-                .add(creative_add.WOOL_BOOTS.get());
+                .add(addItem.WOOL_BOOTS.get());
 
         //crystal cutter
         this.tag(FORGE_TOOLS)
-                .add(creative_add.CRYSTAL_CUTTER.get());
+                .add(addItem.CRYSTAL_CUTTER.get());
         this.tag(FORGE_TOOLS_PICKAXE)
-                .add(creative_add.CRYSTAL_CUTTER.get());
+                .add(addItem.CRYSTAL_CUTTER.get());
         this.tag(DDI_TOOLS)
-                .add(creative_add.CRYSTAL_CUTTER.get());
+                .add(addItem.CRYSTAL_CUTTER.get());
     }
 }
