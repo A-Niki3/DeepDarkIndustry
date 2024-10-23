@@ -18,6 +18,7 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import org.niki3.ddi.advancement.AdvProvider;
+import org.niki3.ddi.items.addItem;
 import org.niki3.ddi.items.event.add_tags;
 import org.niki3.ddi.server.PacketHandler;
 import org.slf4j.Logger;
@@ -38,7 +39,7 @@ public class Ddi {
         BLOCKS.register(modEventBus);
         ITEMS.register(modEventBus);
 
-        creative_add.ITEMS.register(modEventBus);
+        addItem.ITEMS.register(modEventBus);
         MinecraftForge.EVENT_BUS.register(this);
         PacketHandler.registerPackets();
 
