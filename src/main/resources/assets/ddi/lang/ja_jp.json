@@ -8,6 +8,8 @@
   "item.ddi.sculk_capacitor": "スカルクコンデンサー",
   "item.ddi.sculk_vibrator": "スカルク振動子",
 
+  "block.ddi.simple_machine_frame": "シンプルマシンフレーム",
+
   "advancements.ddi.exp.root.title": "Deep Dark Industry",
   "advancements.ddi.exp.root.desc": "これがDDIだ！",
   "advancements.ddi.exp.root.task1": "万能な専用ツール",

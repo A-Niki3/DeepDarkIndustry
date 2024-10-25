@@ -18,11 +18,11 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import org.niki3.ddi.advancement.AdvProvider;
+import org.niki3.ddi.blocks.addBlock;
 import org.niki3.ddi.items.addItem;
 import org.niki3.ddi.items.event.add_tags;
 import org.niki3.ddi.server.PacketHandler;
 import org.slf4j.Logger;
-import org.niki3.ddi.creative.creative_add;
 
 @Mod(Ddi.MODID)
 public class Ddi {
@@ -40,6 +40,8 @@ public class Ddi {
         ITEMS.register(modEventBus);
 
         addItem.ITEMS.register(modEventBus);
+        addBlock.ITEMS.register(modEventBus);
+        addBlock.BLOCKS.register(modEventBus);
         MinecraftForge.EVENT_BUS.register(this);
         PacketHandler.registerPackets();
 

@@ -1,0 +1,5 @@
+{
+  "variants": {
+    "": { "model": "ddi:block/simple_machine_frame" }
+  }
+}

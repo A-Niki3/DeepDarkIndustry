@@ -9,6 +9,8 @@
   "item.ddi.sculk_capacitor": "Sculk capacitor",
   "item.ddi.sculk_vibrator": "Sculk vibrator",
 
+  "block.ddi.simple_machine_frame": "Simple machine frame",
+
   "advancements.ddi.exp.root.title": "Deep Dark Industry",
   "advancements.ddi.exp.root.desc": "This is DDI",
   "advancements.ddi.exp.root.task1": "Versatile dedicated tools",
