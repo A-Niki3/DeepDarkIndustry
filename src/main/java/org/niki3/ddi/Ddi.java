@@ -1,6 +1,7 @@
 package org.niki3.ddi;
 
 import com.mojang.logging.LogUtils;
+import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -19,6 +20,8 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import org.niki3.ddi.advancement.AdvProvider;
 import org.niki3.ddi.blocks.addBlock;
+import org.niki3.ddi.blocks.addBlockEntity;
+import org.niki3.ddi.blocks.others.StorageScreen;
 import org.niki3.ddi.items.addItem;
 import org.niki3.ddi.items.event.add_tags;
 import org.niki3.ddi.server.PacketHandler;
@@ -39,11 +42,21 @@ public class Ddi {
         BLOCKS.register(modEventBus);
         ITEMS.register(modEventBus);
 
+        //only items
         addItem.ITEMS.register(modEventBus);
+        //simple blocks
         addBlock.ITEMS.register(modEventBus);
         addBlock.BLOCKS.register(modEventBus);
+        //block entities
+        addBlockEntity.ITEMS.register(modEventBus);
+        addBlockEntity.BLOCKS.register(modEventBus);
+        addBlockEntity.BLOCK_ENTITIES.register(modEventBus);
+        addBlockEntity.CONTAINERS.register(modEventBus);
+        //なんか
         MinecraftForge.EVENT_BUS.register(this);
+        //packet
         PacketHandler.registerPackets();
+        PacketHandler.chestPackets();
 
     }
 
@@ -72,6 +85,7 @@ public class Ddi {
 
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event){
+            MenuScreens.register(addBlockEntity.TEST_STORAGE_CONTAINER.get(), StorageScreen::new);
 
         }
     }

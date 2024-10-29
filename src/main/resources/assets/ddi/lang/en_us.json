@@ -1,4 +1,6 @@
 {
+  "block.ddi.test_storage": "test chest block",
+
   "itemGroup.ddi_tab": "Deep Dark Industry",
   "item.ddi.crystal_cutter": "Crystal cutter",
   "item.ddi.echo_locator": "Echo locator",

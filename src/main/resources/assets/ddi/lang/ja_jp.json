@@ -1,4 +1,6 @@
 {
+  "block.ddi.test_storage": "test chest block",
+
   "item.ddi.crystal_cutter": "クリスタルカッター",
   "item.ddi.echo_locator": "エコーロケーター",
   "item.ddi.sculk_gear": "スカルクギア",

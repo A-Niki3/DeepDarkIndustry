@@ -16,6 +16,7 @@ public class addBlock {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, Ddi.MODID);
 
     //ブロック
+    // v1.1.x
     public static final RegistryObject<Block> SIMPLE_MACHINE_FRAME = BLOCKS.register("simple_machine_frame",
             () -> new Block(BlockBehaviour.Properties
                     .of(Material.STONE)
@@ -24,6 +25,7 @@ public class addBlock {
             ));
 
     //アイテムとしてのブロック
+    // 1.1.x
     public static final RegistryObject<Item> SIMPLE_MACHINE_FRAME_ITEM = ITEMS.register("simple_machine_frame",
             () -> new BlockItem(SIMPLE_MACHINE_FRAME.get(), new Item.Properties().tab(creative_add.CREATIVE_TAB)));
 }
