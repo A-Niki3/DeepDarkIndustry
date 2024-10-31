@@ -9,13 +9,16 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.niki3.ddi.Ddi;
+import org.niki3.ddi.blocks.others.StorageBlock;
 import org.niki3.ddi.creative.creative_add;
 
 public class addBlock {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, Ddi.MODID);
-    public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, Ddi.MODID);
 
-    //ブロック
+    //test
+    public static final RegistryObject<Block> STORAGE_BLOCK = BLOCKS.register("test_storage",
+            () -> new StorageBlock(BlockBehaviour.Properties.of(Material.STONE).strength(1.0f,6.0f)));
+
     // v1.1.x
     public static final RegistryObject<Block> SIMPLE_MACHINE_FRAME = BLOCKS.register("simple_machine_frame",
             () -> new Block(BlockBehaviour.Properties
@@ -26,6 +29,5 @@ public class addBlock {
 
     //アイテムとしてのブロック
     // 1.1.x
-    public static final RegistryObject<Item> SIMPLE_MACHINE_FRAME_ITEM = ITEMS.register("simple_machine_frame",
-            () -> new BlockItem(SIMPLE_MACHINE_FRAME.get(), new Item.Properties().tab(creative_add.CREATIVE_TAB)));
+
 }

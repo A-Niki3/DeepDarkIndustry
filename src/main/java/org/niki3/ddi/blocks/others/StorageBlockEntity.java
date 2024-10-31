@@ -6,7 +6,9 @@ import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.ContainerHelper;
+import net.minecraft.world.Containers;
 import net.minecraft.world.MenuProvider;
+import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
@@ -26,17 +28,17 @@ import java.util.Objects;
 
 public class StorageBlockEntity extends BlockEntity implements MenuProvider {
     //private final SimpleContainer inventory = new SimpleContainer(27); // スロット数を27に設定（チェストと同じ）
-    private final ItemStackHandler inventory = new ItemStackHandler(27){
+    private final ItemStackHandler itemHandler = new ItemStackHandler(27){
         @Override
         protected void onContentsChanged(int slot){
             setChanged();
         }
     };
 
-    private LazyOptional<IItemHandler> lazyInventory = LazyOptional.of(() -> inventory);
+    private LazyOptional<IItemHandler> lazyInventory = LazyOptional.of(() -> itemHandler);
 
     public StorageBlockEntity(BlockPos pos, BlockState state) {
-        super(addBlockEntity.STORAGE_BLOCK_ENTITY.get(), pos, state);
+        super(addBlockEntity.TEST_STORAGE.get(), pos, state);
     }
 
 
@@ -61,7 +63,7 @@ public class StorageBlockEntity extends BlockEntity implements MenuProvider {
 
     @Override
     public void onLoad() {
-        lazyInventory = LazyOptional.of(() -> inventory);
+        lazyInventory = LazyOptional.of(() -> itemHandler);
         super.onLoad();
     }
 
@@ -74,15 +76,23 @@ public class StorageBlockEntity extends BlockEntity implements MenuProvider {
     @Override
     protected void saveAdditional(@NotNull CompoundTag tag) {
         super.saveAdditional(tag);
-        ContainerHelper.saveAllItems(tag, NonNullList.withSize(inventory.getSlots(), ItemStack.EMPTY));
+        ContainerHelper.saveAllItems(tag, NonNullList.withSize(itemHandler.getSlots(), ItemStack.EMPTY));
     }
 
     @Override
     public void load(@NotNull CompoundTag tag) {
         super.load(tag);
-        ContainerHelper.loadAllItems(tag, NonNullList.withSize(inventory.getSlots(), ItemStack.EMPTY));
+        ContainerHelper.loadAllItems(tag, NonNullList.withSize(itemHandler.getSlots(), ItemStack.EMPTY));
     }
 
+    public void drops(){
+        SimpleContainer inventory = new SimpleContainer(itemHandler.getSlots());
+        for(int i = 0;i < itemHandler.getSlots();i++){
+            inventory.setItem(i, itemHandler.getStackInSlot(i));
+        }
+
+        Containers.dropContents(Objects.requireNonNull(this.level),this.worldPosition,inventory);
+    }
 }
 
-/* 参考動画： https://www.youtube.com/watch?v=jo0BTisGpJk&t=241 */
+/* 参考動画： https://youtu.be/jo0BTisGpJk?si=ziBFk298ntQvD4LK&t=1371 */

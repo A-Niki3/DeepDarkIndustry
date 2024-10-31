@@ -1,12 +1,14 @@
 package org.niki3.ddi.items;
 
 import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Tiers;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.niki3.ddi.Ddi;
+import org.niki3.ddi.blocks.addBlock;
 import org.niki3.ddi.creative.creative_add;
 import org.niki3.ddi.items.detail.EchoLocatorItem;
 import org.niki3.ddi.items.detail.armors;
@@ -24,6 +26,10 @@ public class addItem {
 
      */
     // アイテムの登録
+    //test
+    public static final RegistryObject<Item> STORAGE_BLOCK_ITEM = ITEMS.register("test_storage",
+            () -> new BlockItem(addBlock.STORAGE_BLOCK.get(),new Item.Properties().tab(creative_add.CREATIVE_TAB)));
+
     // v1.0.x
     public static final RegistryObject<Item> CRYSTAL_CUTTER = ITEMS.register("crystal_cutter",
             () -> new crystal_cutter(Tiers.STONE,4,-1.6F,new Item.Properties().tab(creative_add.CREATIVE_TAB).durability(500)));
@@ -41,4 +47,6 @@ public class addItem {
             () -> new Item(new Item.Properties().tab(creative_add.CREATIVE_TAB)));
     public static final RegistryObject<Item> SCULK_CAPACITOR = ITEMS.register("sculk_capacitor",
             () -> new Item(new Item.Properties().tab(creative_add.CREATIVE_TAB)));
+    public static final RegistryObject<Item> SIMPLE_MACHINE_FRAME_ITEM = ITEMS.register("simple_machine_frame",
+            () -> new BlockItem(addBlock.SIMPLE_MACHINE_FRAME.get(), new Item.Properties().tab(creative_add.CREATIVE_TAB)));
 }

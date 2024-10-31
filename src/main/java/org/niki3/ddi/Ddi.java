@@ -42,16 +42,12 @@ public class Ddi {
         BLOCKS.register(modEventBus);
         ITEMS.register(modEventBus);
 
-        //only items
+        //items
         addItem.ITEMS.register(modEventBus);
-        //simple blocks
-        addBlock.ITEMS.register(modEventBus);
+        //blocks
         addBlock.BLOCKS.register(modEventBus);
-        //block entities
-        addBlockEntity.ITEMS.register(modEventBus);
-        addBlockEntity.BLOCKS.register(modEventBus);
+        //block entity
         addBlockEntity.BLOCK_ENTITIES.register(modEventBus);
-        addBlockEntity.CONTAINERS.register(modEventBus);
         //なんか
         MinecraftForge.EVENT_BUS.register(this);
         //packet
@@ -85,7 +81,6 @@ public class Ddi {
 
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event){
-            MenuScreens.register(addBlockEntity.TEST_STORAGE_CONTAINER.get(), StorageScreen::new);
 
         }
     }
