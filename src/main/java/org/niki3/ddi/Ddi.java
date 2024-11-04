@@ -1,7 +1,6 @@
 package org.niki3.ddi;
 
 import com.mojang.logging.LogUtils;
-import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -21,7 +20,6 @@ import net.minecraftforge.registries.ForgeRegistries;
 import org.niki3.ddi.advancement.AdvProvider;
 import org.niki3.ddi.blocks.addBlock;
 import org.niki3.ddi.blocks.addBlockEntity;
-import org.niki3.ddi.blocks.others.StorageScreen;
 import org.niki3.ddi.items.addItem;
 import org.niki3.ddi.items.event.add_tags;
 import org.niki3.ddi.server.PacketHandler;

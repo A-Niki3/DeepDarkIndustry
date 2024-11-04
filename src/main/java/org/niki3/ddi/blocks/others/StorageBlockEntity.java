@@ -95,4 +95,4 @@ public class StorageBlockEntity extends BlockEntity implements MenuProvider {
     }
 }
 
-/* 参考動画： https://youtu.be/jo0BTisGpJk?si=ziBFk298ntQvD4LK&t=1371 */
+/* 参考動画： https://youtu.be/jo0BTisGpJk?si=rZyHE2gGfyWveAzw&t=1867 */
