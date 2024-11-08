@@ -22,7 +22,6 @@ import org.niki3.ddi.advancement.AdvProvider;
 import org.niki3.ddi.blocks.addBlock;
 import org.niki3.ddi.blocks.addBlockEntity;
 import org.niki3.ddi.blocks.others.ModMenuTypes;
-import org.niki3.ddi.blocks.others.StorageContainer;
 import org.niki3.ddi.blocks.others.StorageScreen;
 import org.niki3.ddi.items.addItem;
 import org.niki3.ddi.items.event.add_tags;
