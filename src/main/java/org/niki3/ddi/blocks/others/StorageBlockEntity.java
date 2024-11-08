@@ -12,6 +12,7 @@ import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
@@ -36,9 +37,27 @@ public class StorageBlockEntity extends BlockEntity implements MenuProvider {
     };
 
     private LazyOptional<IItemHandler> lazyInventory = LazyOptional.of(() -> itemHandler);
+    private final ContainerData data;
 
     public StorageBlockEntity(BlockPos pos, BlockState state) {
         super(addBlockEntity.TEST_STORAGE.get(), pos, state);
+        this.data = new ContainerData(){
+
+            @Override
+            public int get(int p_39284_) {
+                return 0;
+            }
+
+            @Override
+            public void set(int p_39285_, int p_39286_) {
+
+            }
+
+            @Override
+            public int getCount() {
+                return 0;
+            }
+        };
     }
 
 
@@ -50,7 +69,7 @@ public class StorageBlockEntity extends BlockEntity implements MenuProvider {
 
     @Override
     public AbstractContainerMenu createMenu(int id, @NotNull Inventory playerInventory, @NotNull Player player) {
-        return new StorageContainer(id, playerInventory, this.worldPosition, Objects.requireNonNull(this.level));
+        return new StorageContainer(id,playerInventory,this,this.data);
     }
 
     @Override

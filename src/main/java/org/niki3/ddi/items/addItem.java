@@ -30,7 +30,7 @@ public class addItem {
     // アイテムの登録
     //test
     public static final RegistryObject<Item> STORAGE_BLOCK_ITEM = ITEMS.register("test_storage",
-            () -> new BlockItem(addBlock.STORAGE_BLOCK.get(),new Item.Properties().tab(creative_add.CREATIVE_TAB)));
+            () -> new BlockItem(addBlock.STORAGE_BLOCK.get(),new Item.Properties()));
 
     // v1.0.x
     public static final RegistryObject<Item> CRYSTAL_CUTTER = ITEMS.register("crystal_cutter",

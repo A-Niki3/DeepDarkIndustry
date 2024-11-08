@@ -3,6 +3,7 @@ package org.niki3.ddi.blocks.others;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
+import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
@@ -19,9 +20,24 @@ public class StorageScreen extends AbstractContainerScreen<StorageContainer> {
     }
 
     @Override
+    protected void init(){
+        super.init();
+    }
+
+    @Override
     protected void renderBg(@NotNull PoseStack poseStack, float partialTicks, int mouseX, int mouseY) {
+        RenderSystem.setShader(GameRenderer::getPositionShader);
+        RenderSystem.setShaderColor(1.0F,1.0F,1.0F,1.0F);
         RenderSystem.setShaderTexture(0, TEXTURE);
+
         this.blit(poseStack, this.leftPos, this.topPos, 0, 0, this.imageWidth, this.imageHeight);
+    }
+
+    @Override
+    public void render(@NotNull PoseStack poseStack, int mouseX, int mouseY, float delta){
+        renderBackground(poseStack);
+        super.render(poseStack, mouseX, mouseY, delta);
+        renderTooltip(poseStack,mouseX,mouseY);
     }
 
     @Override

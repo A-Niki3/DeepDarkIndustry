@@ -26,7 +26,7 @@ public class StorageContainer extends AbstractContainerMenu {
     }
 
     public StorageContainer(int id, Inventory inventory, BlockEntity entity,ContainerData data){
-        super(,id);
+        super(ModMenuTypes.STORAGE_CONTAINER.get(),id);
         checkContainerSize(inventory,27);
         blockEntity = (StorageBlockEntity) entity;
         this.level = inventory.player.level;
@@ -96,14 +96,18 @@ public class StorageContainer extends AbstractContainerMenu {
     private void addPlayerInventory(Inventory plInventory){
         for(int i = 0;i < 3;i++){
             for(int j = 0;j < 9;j++){
-                this.addSlot(new Slot(plInventory, j + i * 9 + 9,8 + j * 18,86 + i * 18));
+                this.addSlot(new Slot(plInventory, j + i * 9 + 9,8 + j * 18,84 + i * 18));
             }
         }
     }
 
     private void addPlayerHotbar(Inventory plInventory){
         for(int i = 0;i < 9;i++){
-            this.addSlot(new Slot(plInventory,i,8 + i * 18,144));
+            this.addSlot(new Slot(plInventory,i,8 + i * 18,142));
         }
+    }
+
+    public ContainerData getData() {
+        return data;
     }
 }
