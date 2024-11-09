@@ -5,6 +5,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.niki3.ddi.Ddi;
+import org.niki3.ddi.blocks.machines.BlockEntities.Generators.ThermalGeneratorBlock;
 import org.niki3.ddi.blocks.others.StorageBlockEntity;
 
 public class addBlockEntity {
@@ -18,4 +19,8 @@ public class addBlockEntity {
     // test
     public static final RegistryObject<BlockEntityType<StorageBlockEntity>> TEST_STORAGE = BLOCK_ENTITIES.register("test_storage",
             () -> BlockEntityType.Builder.of(StorageBlockEntity::new,addBlock.STORAGE_BLOCK.get()).build(null));
+
+    // v1.1.x
+    public static final RegistryObject<BlockEntityType<ThermalGeneratorBlock>> GENERATOR_ENTITY = BLOCK_ENTITIES.register("generator",
+            () -> BlockEntityType.Builder.of(ThermalGeneratorBlock::new,addBlock.THERMAL_GEN.get()).build(null);
 }

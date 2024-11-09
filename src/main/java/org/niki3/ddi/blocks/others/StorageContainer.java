@@ -11,6 +11,7 @@ import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.items.SlotItemHandler;
 import org.jetbrains.annotations.NotNull;
 import org.niki3.ddi.blocks.addBlock;
+import org.niki3.ddi.blocks.addMenuType;
 
 public class StorageContainer extends AbstractContainerMenu {
     public final StorageBlockEntity blockEntity;
@@ -22,7 +23,7 @@ public class StorageContainer extends AbstractContainerMenu {
     }
 
     public StorageContainer(int id, Inventory inventory, BlockEntity entity,ContainerData data){
-        super(ModMenuTypes.STORAGE_CONTAINER.get(),id);
+        super(addMenuType.STORAGE_CONTAINER.get(),id);
         checkContainerSize(inventory,27);
         blockEntity = (StorageBlockEntity) entity;
         this.level = inventory.player.level;
