@@ -21,7 +21,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import org.niki3.ddi.advancement.AdvProvider;
 import org.niki3.ddi.blocks.addBlock;
 import org.niki3.ddi.blocks.addBlockEntity;
-import org.niki3.ddi.blocks.others.ModMenuTypes;
+import org.niki3.ddi.blocks.addMenuType;
 import org.niki3.ddi.blocks.others.StorageScreen;
 import org.niki3.ddi.items.addItem;
 import org.niki3.ddi.items.event.add_tags;
@@ -50,7 +50,7 @@ public class Ddi {
         //block entity
         addBlockEntity.BLOCK_ENTITIES.register(modEventBus);
         //MenuType
-        ModMenuTypes.MENUS.register(modEventBus);
+        addMenuType.MENUS.register(modEventBus);
         //なんか
         MinecraftForge.EVENT_BUS.register(this);
         //packet
@@ -84,7 +84,7 @@ public class Ddi {
 
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event){
-            MenuScreens.register(ModMenuTypes.STORAGE_CONTAINER.get(), StorageScreen::new);
+            MenuScreens.register(addMenuType.STORAGE_CONTAINER.get(), StorageScreen::new);
         }
     }
 }
