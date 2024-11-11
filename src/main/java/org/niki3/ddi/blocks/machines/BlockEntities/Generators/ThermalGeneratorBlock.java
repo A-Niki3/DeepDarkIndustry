@@ -33,6 +33,7 @@ public class ThermalGeneratorBlock extends AbstractGeneratorBlock {
         // アイテムが変更された際の処理（例えば、エネルギー生成や消費のトリガー）
     }
 
+    /* あとで実装 */
     @Override
     public boolean isFuel(ItemStack stack) {
         // 燃料スロットに入れられるアイテムかどうかを判定
