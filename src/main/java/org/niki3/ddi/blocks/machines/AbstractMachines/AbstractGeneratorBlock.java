@@ -1,16 +1,27 @@
 package org.niki3.ddi.blocks.machines.AbstractMachines;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.NonNullList;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.ContainerHelper;
+import net.minecraft.world.Containers;
 import net.minecraft.world.MenuProvider;
+import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.inventory.ContainerData;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.energy.EnergyStorage;
 import net.minecraftforge.energy.IEnergyStorage;
+import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 import org.jetbrains.annotations.NotNull;
+
+import java.util.Objects;
 
 public abstract class AbstractGeneratorBlock extends BlockEntity implements MenuProvider {
     private final Component displayName;
@@ -24,6 +35,7 @@ public abstract class AbstractGeneratorBlock extends BlockEntity implements Menu
     };
 
     protected final IEnergyStorage energyStorage;
+    protected LazyOptional<IItemHandler> lazyInventory = LazyOptional.of(() -> itemHandler);
 
     private final ContainerData data;
 
@@ -94,7 +106,44 @@ public abstract class AbstractGeneratorBlock extends BlockEntity implements Menu
 
     protected abstract void generatorPower();
 
-
-    protected void onContentsChanged(int slot) {
+    @Override
+    public void onLoad() {
+        lazyInventory = LazyOptional.of(() -> itemHandler);
+        super.onLoad();
     }
+
+    @Override
+    public void invalidateCaps() {
+        super.invalidateCaps();
+        lazyInventory.invalidate();
+    }
+
+    @Override
+    protected void saveAdditional(@NotNull CompoundTag tag) {
+        super.saveAdditional(tag);
+        ContainerHelper.saveAllItems(tag, NonNullList.withSize(itemHandler.getSlots(), ItemStack.EMPTY));
+    }
+
+    @Override
+    public void load(@NotNull CompoundTag tag) {
+        super.load(tag);
+        ContainerHelper.loadAllItems(tag, NonNullList.withSize(itemHandler.getSlots(), ItemStack.EMPTY));
+    }
+
+    public void drops(){
+        SimpleContainer inventory = new SimpleContainer(itemHandler.getSlots());
+        for(int i = 0;i < itemHandler.getSlots();i++){
+            inventory.setItem(i, itemHandler.getStackInSlot(i));
+        }
+
+        Containers.dropContents(Objects.requireNonNull(this.level),this.worldPosition,inventory);
+    }
+
+    public static <E extends AbstractGeneratorBlock> void tick(Level level, BlockPos pos, BlockState state, E blockEntity) {
+        if (!level.isClientSide()) {
+            blockEntity.doWork();
+        }
+    }
+
+    protected abstract void doWork();
 }

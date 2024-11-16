@@ -21,6 +21,6 @@ public class addBlockEntity {
             () -> BlockEntityType.Builder.of(StorageBlockEntity::new,addBlock.STORAGE_BLOCK.get()).build(null));
 
     // v1.1.x
-    public static final RegistryObject<BlockEntityType<ThermalGeneratorBlock>> GENERATOR_ENTITY = BLOCK_ENTITIES.register("generator",
-            () -> BlockEntityType.Builder.of(ThermalGeneratorBlock::new,addBlock.THERMAL_GEN.get()).build(null);
+    public static final RegistryObject<BlockEntityType<ThermalGeneratorBlock>> THERMAL_GENERATOR_ENTITY = BLOCK_ENTITIES.register("generator",
+            () -> BlockEntityType.Builder.of(ThermalGeneratorBlock::new,addBlock.THERMAL_GEN.get()).build(null));
 }

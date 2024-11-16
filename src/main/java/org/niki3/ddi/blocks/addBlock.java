@@ -9,6 +9,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.niki3.ddi.Ddi;
+import org.niki3.ddi.blocks.machines.BaseEntityBlocks.Generator.ThermalGenerator;
 import org.niki3.ddi.blocks.others.StorageBlock;
 import org.niki3.ddi.creative.creative_add;
 
@@ -36,7 +37,7 @@ public class addBlock {
             ));
 
     public static final RegistryObject<Block> THERMAL_GEN = BLOCKS.register("thermal_gen",
-            () -> new Block(BlockBehaviour.Properties
+            () -> new ThermalGenerator(BlockBehaviour.Properties
                     .of(Material.STONE)
                     .strength(1.5f,6.0f)
             ));
