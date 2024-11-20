@@ -37,7 +37,7 @@ public abstract class AbstractGeneratorBlock extends BlockEntity implements Menu
     protected final IEnergyStorage energyStorage;
     protected LazyOptional<IItemHandler> lazyInventory = LazyOptional.of(() -> itemHandler);
 
-    private final ContainerData data;
+    protected final ContainerData data;
 
     public AbstractGeneratorBlock(BlockEntityType<?> type, BlockPos pos, BlockState state){
         super(type,pos,state);

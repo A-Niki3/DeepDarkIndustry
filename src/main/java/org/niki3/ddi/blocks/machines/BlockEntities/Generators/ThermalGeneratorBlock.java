@@ -21,6 +21,7 @@ import org.apache.commons.lang3.reflect.FieldUtils;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.niki3.ddi.blocks.machines.AbstractMachines.AbstractGeneratorBlock;
+import org.niki3.ddi.blocks.machines.MachineMenu.GeneratorMenu;
 
 public class ThermalGeneratorBlock extends AbstractGeneratorBlock {
     private int currentBurnTime = 0;
@@ -95,7 +96,7 @@ public class ThermalGeneratorBlock extends AbstractGeneratorBlock {
 
     @Override
     public AbstractContainerMenu createMenu(int id, @NotNull Inventory inventory, @NotNull Player player){
-        return new ThermalGeneratorContainer(id,player,this);
+        return new GeneratorMenu(id,inventory,this,data);
     }
 
     public int getCurrentBurnTime() {
