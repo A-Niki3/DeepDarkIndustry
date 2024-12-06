@@ -3,15 +3,14 @@ package org.niki3.ddi.blocks.machines.MachineMenu;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.inventory.AbstractContainerMenu;
-import net.minecraft.world.inventory.ContainerData;
-import net.minecraft.world.inventory.SimpleContainerData;
-import net.minecraft.world.inventory.Slot;
+import net.minecraft.world.inventory.*;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.items.SlotItemHandler;
+import org.jetbrains.annotations.NotNull;
+import org.niki3.ddi.blocks.addBlock;
 import org.niki3.ddi.blocks.addMenuType;
 import org.niki3.ddi.blocks.machines.BlockEntities.Generators.ThermalGeneratorBlock;
 
@@ -57,13 +56,54 @@ public class GeneratorMenu extends AbstractContainerMenu {
         }
     }
 
+    private static final int HOTBAR_SLOT = 9;
+    private static final int PLINVENTORY_ROW = 3;
+    private static final int PLINVENTORY_COL = 9;
+    private static final int PLINVENTORY = PLINVENTORY_COL * PLINVENTORY_ROW;
+    private static final int VANILLA_SLOT = HOTBAR_SLOT + PLINVENTORY;
+    private static final int VANILLA_FIRST_INDEX = 0;
+    private static final int INVENTORY_FIRST_INDEX = VANILLA_FIRST_INDEX + VANILLA_SLOT;
+
+    private static final int INVENTORY_SLOT = 3;
+
     @Override
-    public ItemStack quickMoveStack(Player p_38941_, int p_38942_) {
-        return null;
+    public @NotNull ItemStack quickMoveStack(@NotNull Player player, int index) {
+        Slot sourceSlot = slots.get(index);
+        if(!sourceSlot.hasItem()) return ItemStack.EMPTY;
+        ItemStack sourceStack = sourceSlot.getItem();
+        ItemStack copyOfSourceStack = sourceStack.copy();
+
+        if(index < INVENTORY_FIRST_INDEX){
+            if(!moveItemStackTo(sourceStack,INVENTORY_FIRST_INDEX,INVENTORY_FIRST_INDEX + INVENTORY_SLOT,false)){
+                return ItemStack.EMPTY;
+            }
+        }
+        else if(index < INVENTORY_FIRST_INDEX + INVENTORY_SLOT){
+            if(!moveItemStackTo(sourceStack,VANILLA_FIRST_INDEX,INVENTORY_FIRST_INDEX,false)){
+                return ItemStack.EMPTY;
+            }
+        }
+        else {
+            System.out.println("Invalid slotIndex:" + index);
+            return ItemStack.EMPTY;
+        }
+
+        if(sourceStack.getCount() == 0){
+            sourceSlot.set(ItemStack.EMPTY);
+        }
+        else {
+            sourceSlot.setChanged();
+        }
+        sourceSlot.onTake(player,sourceStack);
+        return copyOfSourceStack;
     }
 
     @Override
-    public boolean stillValid(Player p_38874_) {
-        return false;
+    public boolean stillValid(@NotNull Player player) {
+        return stillValid(ContainerLevelAccess.create(level,blockEntity.getBlockPos()),player, addBlock.THERMAL_GEN.get());
+    }
+
+    public ContainerData getData(){
+        return data;
     }
 }
