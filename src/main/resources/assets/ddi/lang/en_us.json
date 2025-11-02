@@ -1,0 +1,13 @@
+{
+  "itemGroup.ddi": "Example Mod Tab",
+  "block.ddi.example_block": "Example Block",
+  "item.ddi.example_item": "Example Item",
+
+  "ddi.configuration.title": "DeepDarkIndustry Configs",
+  "ddi.configuration.section.ddi.common.toml": "DeepDarkIndustry Configs",
+  "ddi.configuration.section.ddi.common.toml.title": "DeepDarkIndustry Configs",
+  "ddi.configuration.items": "Item List",
+  "ddi.configuration.logDirtBlock": "Log Dirt Block",
+  "ddi.configuration.magicNumberIntroduction": "Magic Number Text",
+  "ddi.configuration.magicNumber": "Magic Number"
+}
