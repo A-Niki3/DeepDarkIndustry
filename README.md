@@ -1,5 +1,5 @@
 # Deep Dark Industry README(EN & JP)
-A mod for MC 1.21.1 NeoForge<br>
+A mod for MC 1.19.2Forge & 1.21.1 NeoForge<br>
 日本語版は[下部](https://github.com/A-Niki3/DeepDarkIndustry/blob/main/README.md#%E6%A6%82%E8%A6%81)にあります。<br>
 Download mod
 * **GitHub releases**: https://github.com/A-Niki3/DeepDarkIndustry/releases/
