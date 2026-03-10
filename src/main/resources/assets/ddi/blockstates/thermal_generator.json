@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "lit=false": {
+      "model": "ddi:block/thermal_generator",
+    },
+    "lit=true": {
+      "model": "minecraft:block/thermal_generator_on",
+    }
+  }
+}

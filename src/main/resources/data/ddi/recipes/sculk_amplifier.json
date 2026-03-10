@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " D ",
+    "IEI",
+    " D "
+  ],
+  "key": {
+    "E": {
+      "item": "minecraft:echo_shard"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "D": {
+      "item": "minecraft:cobbled_deepslate"
+    }
+  },
+  "result": {
+    "item": "ddi:sculk_amplifier",
+    "count": 1
+  }
+}

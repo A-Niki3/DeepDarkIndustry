@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "DCD",
+    "CAC",
+    "DCD"
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:amethyst_shard"
+    },
+    "C": {
+      "item": "minecraft:copper_ingot"
+    },
+    "D": {
+      "item": "minecraft:cobbled_deepslate"
+    }
+  },
+  "result": {
+    "item": "ddi:echo_locator",
+    "count": 1
+  }
+}
