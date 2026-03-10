@@ -1,7 +1,9 @@
 package org.niki3.ddi;
 
 import com.mojang.authlib.GameProfile;
+import net.minecraft.world.item.*;
 import net.neoforged.fml.javafmlmod.FMLJavaModLanguageProvider;
+import org.niki3.ddi.registration.DdiCreativeTab;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -10,10 +12,6 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.food.FoodProperties;
-import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.CreativeModeTabs;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -73,7 +71,7 @@ public class Ddi {
 
         NeoForge.EVENT_BUS.register(this);
 
-        //modEventBus.addListener(this::addCreative);
+        modEventBus.addListener(this::addCreative);
 
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
     }
@@ -81,6 +79,7 @@ public class Ddi {
     private void addRegistrationListeners(IEventBus modEventBus){
         DdiItems.ITEMS.register(modEventBus);
         DdiBlocks.BLOCKS.register(modEventBus);
+        DdiCreativeTab.TAB.register(modEventBus);
     }
 
     private void commonSetup(FMLCommonSetupEvent event) {
@@ -97,11 +96,22 @@ public class Ddi {
     }
 
     // Add the example block item to the building blocks tab
-    //private void addCreative(BuildCreativeModeTabContentsEvent event) {
-    //    if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
-    //        event.accept(EXAMPLE_BLOCK_ITEM);
-    //    }
-    // }
+    private void addCreative(BuildCreativeModeTabContentsEvent event) {
+        if (event.getTabKey() == DdiCreativeTab.DDI_TAB.getKey()) {
+            event.acceptAll(
+                    DdiItems.ITEMS.getEntries()
+                            .stream()
+                            .map(holder -> new ItemStack(holder.get()))
+                            .toList()
+            );
+            event.acceptAll(
+                    DdiBlocks.BLOCKS.getEntries()
+                            .stream()
+                            .map(holder -> new ItemStack(holder.get()))
+                            .toList()
+            );
+        }
+    }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
     @SubscribeEvent

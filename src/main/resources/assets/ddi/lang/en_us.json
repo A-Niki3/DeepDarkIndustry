@@ -1,13 +1,31 @@
 {
-  "itemGroup.ddi": "Example Mod Tab",
-  "block.ddi.example_block": "Example Block",
-  "item.ddi.example_item": "Example Item",
+  "block.ddi.test_storage": "test chest block",
 
-  "ddi.configuration.title": "DeepDarkIndustry Configs",
-  "ddi.configuration.section.ddi.common.toml": "DeepDarkIndustry Configs",
-  "ddi.configuration.section.ddi.common.toml.title": "DeepDarkIndustry Configs",
-  "ddi.configuration.items": "Item List",
-  "ddi.configuration.logDirtBlock": "Log Dirt Block",
-  "ddi.configuration.magicNumberIntroduction": "Magic Number Text",
-  "ddi.configuration.magicNumber": "Magic Number"
+  "itemGroup.ddi": "Deep Dark Industry",
+  "item.ddi.crystal_cutter": "Crystal cutter",
+  "item.ddi.echo_locator": "Echo locator",
+  "item.ddi.sculk_gear": "Sculk gear",
+  "item.ddi.wool_boots": "Wool boots",
+
+  "item.ddi.sculk_amplifier": "Sculk amplifier",
+  "item.ddi.sculk_capacitor": "Sculk capacitor",
+  "item.ddi.sculk_vibrator": "Sculk vibrator",
+
+  "block.ddi.simple_machine_frame": "Simple machine frame",
+
+  "advancements.ddi.exp.root.title": "Deep Dark Industry",
+  "advancements.ddi.exp.root.desc": "This is DDI",
+  "advancements.ddi.exp.root.task1": "Versatile dedicated tools",
+  "advancements.ddi.exp.root.task1_desc": "Mining and attacking all in one!",
+  "advancements.ddi.exp.root.task2": "Ninja's stealthy footsteps",
+  "advancements.ddi.exp.root.task2_desc": "Quietly so as not to wake up the Warden",
+  "advancements.ddi.exp.root.task3": "I can hear Sculk singing",
+  "advancements.ddi.exp.root.task3_desc": "Search of the Deep Dark",
+  "advancements.ddi.exp.root.task4": "Get shard",
+  "advancements.ddi.exp.root.task4_desc": "Use the crystal cutter to get the shards",
+
+  "advancements.ddi.mec.root.title": "Beginning of the Industrial",
+  "advancements.ddi.mec.root.desc": "The real DDI",
+  "advancements.ddi.mec.root.task1": "Industrial Idol",
+  "advancements.ddi.mec.root.task1_desc": "Nice to meet you"
 }
