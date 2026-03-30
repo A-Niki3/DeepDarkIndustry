@@ -2,6 +2,7 @@
   "type": "minecraft:block",
   "pools": [
     {
+      "rolls": 1.0,
       "bonus_rolls": 0.0,
       "entries": [
         {
@@ -9,22 +10,24 @@
           "children": [
             {
               "type": "minecraft:item",
+              "name": "minecraft:sculk",
               "conditions": [
                 {
                   "condition": "minecraft:match_tool",
                   "predicate": {
-                    "enchantments": [
-                      {
-                        "enchantment": "minecraft:silk_touch",
-                        "levels": {
-                          "min": 1
+                    "predicates": {
+                      "minecraft:enchantments": [
+                        {
+                          "enchantments": "minecraft:silk_touch",
+                          "levels": {
+                            "min": 1
+                          }
                         }
-                      }
-                    ]
+                      ]
+                    }
                   }
                 }
-              ],
-              "name": "minecraft:sculk"
+              ]
             },
             {
               "type": "minecraft:item",
@@ -59,8 +62,8 @@
             }
           ]
         }
-      ],
-      "rolls": 1.0
+      ]
     }
-  ]
+  ],
+    "random_sequence": "minecraft:blocks/sculk"
 }
