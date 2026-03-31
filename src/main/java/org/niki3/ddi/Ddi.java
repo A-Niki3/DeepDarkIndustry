@@ -3,6 +3,7 @@ package org.niki3.ddi;
 import com.mojang.authlib.GameProfile;
 import net.minecraft.world.item.*;
 import net.neoforged.fml.javafmlmod.FMLJavaModLanguageProvider;
+import org.niki3.ddi.registration.DdiArmorMaterials;
 import org.niki3.ddi.registration.DdiCreativeTab;
 import org.slf4j.Logger;
 
@@ -77,6 +78,7 @@ public class Ddi {
     }
 
     private void addRegistrationListeners(IEventBus modEventBus){
+        DdiArmorMaterials.ARMOR_MATERIALS.register(modEventBus);
         DdiItems.ITEMS.register(modEventBus);
         DdiBlocks.BLOCKS.register(modEventBus);
         DdiCreativeTab.TAB.register(modEventBus);
