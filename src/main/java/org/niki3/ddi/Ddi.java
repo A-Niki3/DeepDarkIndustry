@@ -1,10 +1,15 @@
 package org.niki3.ddi;
 
 import com.mojang.authlib.GameProfile;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.data.DataGenerator;
+import net.minecraft.data.PackOutput;
 import net.minecraft.world.item.*;
 import net.neoforged.fml.javafmlmod.FMLJavaModLanguageProvider;
-import org.niki3.ddi.registration.DdiArmorMaterials;
-import org.niki3.ddi.registration.DdiCreativeTab;
+import net.neoforged.neoforge.common.data.ExistingFileHelper;
+import net.neoforged.neoforge.data.event.GatherDataEvent;
+import org.niki3.ddi.advancement.AdvProvider;
+import org.niki3.ddi.registration.*;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -34,9 +39,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 
 import java.nio.charset.StandardCharsets;
 import java.util.UUID;
-
-import org.niki3.ddi.registration.DdiBlocks;
-import org.niki3.ddi.registration.DdiItems;
+import java.util.concurrent.CompletableFuture;
 
 // The value here should match an entry in the META-INF/neoforge.mods.toml file
 @Mod(Ddi.MODID)
@@ -67,6 +70,7 @@ public class Ddi {
 
     public Ddi(IEventBus modEventBus, ModContainer modContainer) {
         modEventBus.addListener(this::commonSetup);
+        modEventBus.addListener(this::gatherData);
 
         addRegistrationListeners(modEventBus);
 
@@ -82,6 +86,16 @@ public class Ddi {
         DdiItems.ITEMS.register(modEventBus);
         DdiBlocks.BLOCKS.register(modEventBus);
         DdiCreativeTab.TAB.register(modEventBus);
+    }
+
+    private void gatherData(GatherDataEvent event){
+        DataGenerator generator = event.getGenerator();
+        ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
+        PackOutput output = generator.getPackOutput();
+        CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
+
+        generator.addProvider(event.includeServer(), new DdiTags(output, lookupProvider, generator,existingFileHelper));
+        //generator.addProvider(event.includeServer(), new AdvProvider(generator, existingFileHelper));
     }
 
     private void commonSetup(FMLCommonSetupEvent event) {
