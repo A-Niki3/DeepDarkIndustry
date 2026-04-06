@@ -7,6 +7,7 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import org.niki3.ddi.Ddi;
 import org.niki3.ddi.items.DdiCrystalCutter;
+import org.niki3.ddi.items.DdiEchoLocator;
 
 public class DdiItems {
     private DdiItems(){}
@@ -23,7 +24,7 @@ public class DdiItems {
     public static final DeferredHolder<Item, Item> CRYSTAL_CUTTER = ITEMS.register("crystal_cutter",() -> new DdiCrystalCutter(
             Tiers.IRON,1.0F,1.0F,new Item.Properties().durability(1024)
     ));
-    //public static final DeferredHolder<Item, Item> ECHO_LOCATOR = ITEMS.register("echo_locator",() -> new DdiEchoLocator());
+    public static final DeferredHolder<Item, Item> ECHO_LOCATOR = ITEMS.register("echo_locator",() -> new DdiEchoLocator(new Item.Properties().stacksTo(1)));
     public static final DeferredHolder<Item, Item> WOOL_BOOTS = ITEMS.register("wool_boots",() -> new ArmorItem(
             DdiArmorMaterials.WOOL, ArmorItem.Type.BOOTS, new Item.Properties().stacksTo(1)));
 
