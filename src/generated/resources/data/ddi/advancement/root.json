@@ -1,0 +1,39 @@
+{
+  "criteria": {
+    "in_overworld": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "dimension": "minecraft:overworld"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    }
+  },
+  "display": {
+    "background": "ddi:textures/item/sculk_gear.png",
+    "description": {
+      "translate": "advancements.ddi.exp.root.desc"
+    },
+    "icon": {
+      "count": 1,
+      "id": "ddi:sculk_gear"
+    },
+    "title": {
+      "translate": "advancements.ddi.exp.root.title"
+    }
+  },
+  "requirements": [
+    [
+      "in_overworld"
+    ]
+  ],
+  "sends_telemetry_event": true
+}
