@@ -17,7 +17,7 @@ public class DdiTags extends ItemTagsProvider {
     public static final TagKey<Item> VIBRATION_SILENCER = TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("ddi","vibration_silencer"));
 
 
-    public DdiTags(PackOutput output, CompletableFuture<HolderLookup.Provider> lookup, DataGenerator generator, ExistingFileHelper existingFileHelper){
+    public DdiTags(PackOutput output, CompletableFuture<HolderLookup.Provider> lookup, ExistingFileHelper existingFileHelper){
         super(output, lookup, CompletableFuture.completedFuture(TagLookup.empty()), "ddi", existingFileHelper);
     }
 

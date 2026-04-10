@@ -94,7 +94,8 @@ public class Ddi {
         PackOutput output = generator.getPackOutput();
         CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
 
-        generator.addProvider(event.includeServer(), new DdiTags(output, lookupProvider, generator,existingFileHelper));
+        generator.addProvider(event.includeServer(), new DdiTags(output, lookupProvider, existingFileHelper));
+        generator.addProvider(event.includeServer(), new AdvProvider(output, lookupProvider, existingFileHelper));
         //generator.addProvider(event.includeServer(), new AdvProvider(generator, existingFileHelper));
     }
 
