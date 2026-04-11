@@ -1,0 +1,36 @@
+{
+  "criteria": {
+    "crafted_item": {
+      "conditions": {
+        "items": [
+          {
+            "items": "ddi:sculk_gear"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "background": "minecraft:textures/block/deepslate.png",
+    "description": {
+      "translate": "advancements.ddi.mec.root.desc"
+    },
+    "frame": "goal",
+    "icon": {
+      "count": 1,
+      "id": "ddi:sculk_gear"
+    },
+    "show_toast": false,
+    "title": {
+      "translate": "advancements.ddi.mec.root.title"
+    }
+  },
+  "requirements": [
+    [
+      "crafted_item"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

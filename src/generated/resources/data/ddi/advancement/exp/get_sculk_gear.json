@@ -1,0 +1,34 @@
+{
+  "parent": "ddi:exp/get_shard",
+  "criteria": {
+    "crafted_item": {
+      "conditions": {
+        "items": [
+          {
+            "items": "ddi:sculk_gear"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.ddi.exp.root.get_sculk_gear_desc"
+    },
+    "frame": "challenge",
+    "icon": {
+      "count": 1,
+      "id": "ddi:sculk_gear"
+    },
+    "title": {
+      "translate": "advancements.ddi.exp.root.get_sculk_gear"
+    }
+  },
+  "requirements": [
+    [
+      "crafted_item"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

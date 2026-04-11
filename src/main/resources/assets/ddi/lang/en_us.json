@@ -15,17 +15,19 @@
 
   "advancements.ddi.exp.root.title": "Deep Dark Industry",
   "advancements.ddi.exp.root.desc": "This is DDI",
-  "advancements.ddi.exp.root.task1": "Versatile dedicated tools",
-  "advancements.ddi.exp.root.task1_desc": "Mining and attacking all in one!",
-  "advancements.ddi.exp.root.task2": "Ninja's stealthy footsteps",
-  "advancements.ddi.exp.root.task2_desc": "Quietly so as not to wake up the Warden",
-  "advancements.ddi.exp.root.task3": "I can hear Sculk singing",
-  "advancements.ddi.exp.root.task3_desc": "Search of the Deep Dark",
-  "advancements.ddi.exp.root.task4": "Get shard",
-  "advancements.ddi.exp.root.task4_desc": "Use the crystal cutter to get the shards",
+  "advancements.ddi.exp.root.get_crystal_cutter": "Versatile dedicated tools",
+  "advancements.ddi.exp.root.get_crystal_cutter_desc": "Mining and attacking all in one!",
+  "advancements.ddi.exp.root.get_wool_boots": "Ninja's stealthy footsteps",
+  "advancements.ddi.exp.root.get_wool_boots_desc": "Quietly so as not to wake up the Warden",
+  "advancements.ddi.exp.root.get_echo_locator": "I can hear Sculk singing",
+  "advancements.ddi.exp.root.get_echo_locator_desc": "Search of the Deep Dark",
+  "advancements.ddi.exp.root.get_shard": "Get shard",
+  "advancements.ddi.exp.root.get_shard_desc": "Use the crystal cutter to get the shards",
+  "advancements.ddi.exp.root.get_sculk_gear": "Industrial Idol",
+  "advancements.ddi.exp.root.get_sculk_gear_desc": "Nice to meet you",
 
   "advancements.ddi.mec.root.title": "Beginning of the Industrial",
   "advancements.ddi.mec.root.desc": "The real DDI",
-  "advancements.ddi.mec.root.task1": "Industrial Idol",
-  "advancements.ddi.mec.root.task1_desc": "Nice to meet you"
+  "advancements.ddi.mec.root.get_sculk_gear": "Industrial Idol",
+  "advancements.ddi.mec.root.get_sculk_gear_desc": "Nice to meet you"
 }

@@ -1,0 +1,33 @@
+{
+  "parent": "ddi:exp/get_echo_locator",
+  "criteria": {
+    "get_item": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:echo_shard"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.ddi.exp.root.get_shard_desc"
+    },
+    "icon": {
+      "count": 1,
+      "id": "minecraft:echo_shard"
+    },
+    "title": {
+      "translate": "advancements.ddi.exp.root.get_shard"
+    }
+  },
+  "requirements": [
+    [
+      "get_item"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

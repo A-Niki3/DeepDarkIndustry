@@ -18,10 +18,11 @@
     }
   },
   "display": {
-    "background": "ddi:textures/item/sculk_gear.png",
+    "background": "minecraft:textures/block/blast_furnace_top.png",
     "description": {
       "translate": "advancements.ddi.exp.root.desc"
     },
+    "frame": "goal",
     "icon": {
       "count": 1,
       "id": "ddi:sculk_gear"

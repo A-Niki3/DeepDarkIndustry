@@ -1,0 +1,33 @@
+{
+  "parent": "ddi:exp/root",
+  "criteria": {
+    "crafted_item": {
+      "conditions": {
+        "items": [
+          {
+            "items": "ddi:wool_boots"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.ddi.exp.root.get_wool_boots_desc"
+    },
+    "icon": {
+      "count": 1,
+      "id": "ddi:wool_boots"
+    },
+    "title": {
+      "translate": "advancements.ddi.exp.root.get_wool_boots"
+    }
+  },
+  "requirements": [
+    [
+      "crafted_item"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

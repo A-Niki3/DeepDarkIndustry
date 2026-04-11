@@ -1,0 +1,33 @@
+{
+  "parent": "ddi:exp/root",
+  "criteria": {
+    "crafted_item": {
+      "conditions": {
+        "items": [
+          {
+            "items": "ddi:crystal_cutter"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.ddi.exp.root.get_crystal_cutter_desc"
+    },
+    "icon": {
+      "count": 1,
+      "id": "ddi:crystal_cutter"
+    },
+    "title": {
+      "translate": "advancements.ddi.exp.root.get_crystal_cutter"
+    }
+  },
+  "requirements": [
+    [
+      "crafted_item"
+    ]
+  ],
+  "sends_telemetry_event": true
+}
