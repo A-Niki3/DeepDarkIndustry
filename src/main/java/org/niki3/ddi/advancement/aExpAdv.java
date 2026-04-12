@@ -22,7 +22,7 @@ public class aExpAdv implements AdvancementSubProvider {
     public void generate(HolderLookup.@NotNull Provider provider, @NotNull Consumer<AdvancementHolder> consumer){
         AdvancementHolder root = Advancement.Builder.advancement()
                 .display(
-                        DdiItems.SCULK_GEAR.get(),
+                        DdiItems.ECHO_LOCATOR.get(),
                         Component.translatable("advancements.ddi.exp.root.title"),
                         Component.translatable("advancements.ddi.exp.root.desc"),
                         ResourceLocation.fromNamespaceAndPath("minecraft","textures/block/blast_furnace_top.png"),
