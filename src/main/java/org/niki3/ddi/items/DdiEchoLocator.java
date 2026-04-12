@@ -17,7 +17,6 @@ import net.minecraft.world.level.biome.Biomes;
 import org.jetbrains.annotations.NotNull;
 import org.niki3.ddi.Config;
 
-import java.util.Properties;
 
 public class DdiEchoLocator extends Item {
     public DdiEchoLocator(Properties properties){
