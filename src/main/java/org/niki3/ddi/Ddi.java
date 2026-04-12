@@ -80,12 +80,13 @@ public class Ddi {
                             .map(holder -> new ItemStack(holder.get()))
                             .toList()
             );
-            event.acceptAll(
-                    DdiBlocks.BLOCKS.getEntries()
-                            .stream()
-                            .map(holder -> new ItemStack(holder.get()))
-                            .toList()
-            );
+            // 多分BlockItemをITEMSに入れてるから要らないかも
+//            event.acceptAll(
+//                    DdiBlocks.BLOCKS.getEntries()
+//                            .stream()
+//                            .map(holder -> new ItemStack(holder.get()))
+//                            .toList()
+//            );
         }
     }
 

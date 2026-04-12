@@ -1,6 +1,7 @@
 package org.niki3.ddi.registration;
 
 import net.minecraft.world.item.ArmorItem;
+import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Tiers;
 import net.neoforged.neoforge.registries.DeferredHolder;
@@ -15,7 +16,8 @@ public class DdiItems {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(Ddi.MODID);
 
     // アイテム追加テンプレ
-    // public static final DeferredRegister<Item, Item> ITEM_NAME = ITEMS.register("item_name",() -> new Item(new Item.Properties()));
+    // public static final DeferredHolder<Item, Item> ITEM_NAME = ITEMS.register("item_name",() -> new Item(new Item.Properties()));
+    // public static final DeferredHolder<Item, Item> ITEM_NAME = ITEMS.register("item_name",() -> new BlockItem(new Item.Properties()));
 
     // テストアイテム追加
 
@@ -29,5 +31,14 @@ public class DdiItems {
             DdiArmorMaterials.WOOL, ArmorItem.Type.BOOTS, new Item.Properties().stacksTo(1)));
 
     // 1.1.x アイテム
+    public static final DeferredHolder<Item, Item> SCULK_AMP = ITEMS.register("sculk_amplifier",() -> new Item(new Item.Properties()));
+    public static final DeferredHolder<Item, Item> SCULK_VIB = ITEMS.register("sculk_vibrator",() -> new Item(new Item.Properties()));
+    public static final DeferredHolder<Item, Item> SCULK_CAP = ITEMS.register("sculk_capacitor",() -> new Item(new Item.Properties()));
+    //public static final DeferredHolder<Item, Item> EARLY_CHAINSAW = ITEMS.register("early_chainsaw",() -> new Item(new Item.Properties()));
+    //public static final DeferredHolder<Item, Item> EARLY_DRILL = ITEMS.register("early_drill",() -> new Item(new Item.Properties()));
 
+    // 1.1.x ブロック
+    public static final DeferredHolder<Item, Item> SIMPLE_MACHINE_FRAME_ITEM = ITEMS.register("simple_machine_frame",() -> new BlockItem(
+        DdiBlocks.SIMPLE_MACHINE_FRAME.get(), new Item.Properties()
+    ));
 }
