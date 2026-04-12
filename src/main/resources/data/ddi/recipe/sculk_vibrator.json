@@ -17,7 +17,7 @@
     }
   },
   "result": {
-    "item": "ddi:sculk_vibrator",
+    "id": "ddi:sculk_vibrator",
     "count": 1
   }
 }

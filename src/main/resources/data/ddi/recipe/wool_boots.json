@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "equipment",
   "pattern": [
     "W W",
     "W W"
@@ -10,7 +11,7 @@
     }
   },
   "result": {
-    "item": "ddi:wool_boots",
+    "id": "ddi:wool_boots",
     "count": 1
   }
 }

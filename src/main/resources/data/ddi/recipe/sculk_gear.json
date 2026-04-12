@@ -14,7 +14,7 @@
     }
   },
   "result": {
-    "item": "ddi:sculk_gear",
+    "id": "ddi:sculk_gear",
     "count": 1
   }
 }

@@ -1,19 +1,23 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    " A ",
-    " S "
+    "DCD",
+    "CAC",
+    "DCD"
   ],
   "key": {
     "A": {
       "item": "minecraft:amethyst_shard"
     },
-    "S": {
-      "item": "minecraft:stick"
+    "C": {
+      "item": "minecraft:copper_ingot"
+    },
+    "D": {
+      "item": "minecraft:cobbled_deepslate"
     }
   },
   "result": {
-    "item": "ddi:crystal_cutter",
+    "id": "ddi:echo_locator",
     "count": 1
   }
 }

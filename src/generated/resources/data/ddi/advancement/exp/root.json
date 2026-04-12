@@ -25,7 +25,7 @@
     "frame": "goal",
     "icon": {
       "count": 1,
-      "id": "ddi:sculk_gear"
+      "id": "ddi:echo_locator"
     },
     "title": {
       "translate": "advancements.ddi.exp.root.title"
