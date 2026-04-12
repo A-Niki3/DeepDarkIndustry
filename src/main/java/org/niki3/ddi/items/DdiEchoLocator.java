@@ -15,6 +15,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.Biomes;
 import org.jetbrains.annotations.NotNull;
+import org.niki3.ddi.Config;
 
 import java.util.Properties;
 
@@ -37,22 +38,23 @@ public class DdiEchoLocator extends Item {
             Pair<BlockPos, Holder<Biome>> result = serverLevel.findClosestBiome3d(
                     biomeHolder -> biomeHolder.is(Biomes.DEEP_DARK),
                     PlayerPos,
-                    5000,
-                    100,
-                    8
+                    Config.ECHO_RADIUS.get(),
+                    Config.ECHO_HORIZONTAL_STEP.get(),
+                    Config.ECHO_VERTICAL_STEP.getAsInt()
             );
 
             if (result != null){
                 BlockPos found = result.getFirst();
                 serverPlayer.sendSystemMessage(
-                        Component.literal("Deep Dark found at:"
-                                + "x:" + found.getX() + ","
-                                + "z:" + found.getZ()
+                        Component.translatable(
+                                "item.ddi.echo_locator.output.success",
+                                found.getX(),
+                                found.getZ()
                         )
                 );
             } else{
                 serverPlayer.sendSystemMessage(
-                        Component.literal("Deep Dark Not Found")
+                        Component.translatable("item.ddi.echo_locator.output.failed")
                 );
             }
             player.getCooldowns().addCooldown(this, 20 * 5);

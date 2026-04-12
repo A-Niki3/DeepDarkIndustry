@@ -3,6 +3,8 @@
 
   "item.ddi.crystal_cutter": "クリスタルカッター",
   "item.ddi.echo_locator": "エコーロケーター",
+  "item.ddi.echo_locator.output.success": "ディープダークを見つけました: x=%s, z=%s",
+  "item.ddi.echo_locator.output.failed": "ディープダークが見つかりませんでした",
   "item.ddi.sculk_gear": "スカルクギア",
   "item.ddi.wool_boots": "ウールブーツ",
 
@@ -28,5 +30,9 @@
   "advancements.ddi.mec.root.title": "工業の夜明けぜよ",
   "advancements.ddi.mec.root.desc": "DDIの本番",
   "advancements.ddi.mec.root.get_sculk_gear": "工業のアイドル♡",
-  "advancements.ddi.mec.root.get_sculk_gear_desc": "歯車先輩お世話になるっす！"
+  "advancements.ddi.mec.root.get_sculk_gear_desc": "歯車先輩お世話になるっす！",
+
+  "ddi.configuration.Radius": "エコーロケーター（半径）",
+  "ddi.configuration.echoHorizontalStep": "エコーロケーター（横方向精度）",
+  "ddi.configuration.echoVerticalStep": "エコーロケーター（縦方向精度）"
 }

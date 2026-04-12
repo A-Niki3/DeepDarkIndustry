@@ -4,6 +4,8 @@
   "itemGroup.ddi": "Deep Dark Industry",
   "item.ddi.crystal_cutter": "Crystal cutter",
   "item.ddi.echo_locator": "Echo locator",
+  "item.ddi.echo_locator.output.success": "Deep Dark found at: x=%s, z=%s",
+  "item.ddi.echo_locator.output.failed": "Deep Dark not found",
   "item.ddi.sculk_gear": "Sculk gear",
   "item.ddi.wool_boots": "Wool boots",
 
@@ -29,5 +31,9 @@
   "advancements.ddi.mec.root.title": "Beginning of the Industrial",
   "advancements.ddi.mec.root.desc": "The real DDI",
   "advancements.ddi.mec.root.get_sculk_gear": "Industrial Idol",
-  "advancements.ddi.mec.root.get_sculk_gear_desc": "Nice to meet you"
+  "advancements.ddi.mec.root.get_sculk_gear_desc": "Nice to meet you",
+
+  "ddi.configuration.Radius": "Echo Location Radius Config",
+  "ddi.configuration.echoHorizontalStep": "Echo Locator horizontal step",
+  "ddi.configuration.echoVerticalStep": "Echo Locator vertical step"
 }
