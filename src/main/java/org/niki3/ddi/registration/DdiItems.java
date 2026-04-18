@@ -27,9 +27,9 @@ public class DdiItems {
             Tiers.IRON,1.0F,1.0F,new Item.Properties().durability(1024)
     ));
     public static final DeferredHolder<Item, Item> ECHO_LOCATOR = ITEMS.register("echo_locator",() -> new DdiEchoLocator(new Item.Properties().stacksTo(1)));
-    public static final DeferredHolder<Item, Item> WOOL_BOOTS = ITEMS.register("wool_boots",() -> new ArmorItem(
-            DdiArmorMaterials.WOOL, ArmorItem.Type.BOOTS, new Item.Properties().stacksTo(1)));
 
+    public static final DeferredHolder<Item, Item> WOOL_BOOTS = ITEMS.register("wool_boots",() -> new ArmorItem(
+            DdiArmorMaterials.WOOL, ArmorItem.Type.BOOTS, new Item.Properties().stacksTo(1).durability(100)));
     // 1.1.x アイテム
     public static final DeferredHolder<Item, Item> SCULK_AMP = ITEMS.register("sculk_amplifier",() -> new Item(new Item.Properties()));
     public static final DeferredHolder<Item, Item> SCULK_VIB = ITEMS.register("sculk_vibrator",() -> new Item(new Item.Properties()));
