@@ -1,7 +1,10 @@
 package org.niki3.ddi.registration;
 
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.material.MapColor;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
@@ -11,9 +14,10 @@ public class DdiBlocks{
     public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks("ddi");
 
     // 1.1.x
-    public static final DeferredHolder<Block, Block> SIMPLE_MACHINE_FRAME = BLOCKS.register("simple_machine_block",
-            () -> new Block(BlockBehaviour.Properties
-                    .of()
+    public static final DeferredHolder<Block, Block> SIMPLE_MACHINE_FRAME = BLOCKS.register("simple_machine_frame",
+            () -> new Block(BlockBehaviour.Properties.of()
+                    .requiresCorrectToolForDrops()
+                    .sound(SoundType.STONE)
                     .strength(1.5f,6.0f)
                     .noOcclusion()
             ));

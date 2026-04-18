@@ -28,7 +28,7 @@ public class DdiArmorMaterials {
                             ArmorItem.Type.CHESTPLATE, 3,
                             ArmorItem.Type.HELMET, 1
                     ),
-                    5,
+                    10,
                     BuiltInRegistries.SOUND_EVENT.wrapAsHolder(SoundEvents.WOOL_PLACE),
                     () -> Ingredient.of(Items.WHITE_WOOL),
                     List.of(

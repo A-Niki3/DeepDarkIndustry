@@ -4,10 +4,15 @@ import com.mojang.authlib.GameProfile;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
+import net.minecraft.data.loot.LootTableProvider;
 import net.minecraft.world.item.*;
+import net.minecraft.world.level.storage.loot.parameters.LootContextParamSet;
+import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 import org.niki3.ddi.advancement.AdvProvider;
+import org.niki3.ddi.blocks.DdiBlockLootProvider;
+import org.niki3.ddi.blocks.DdiBlockTagProvider;
 import org.niki3.ddi.registration.*;
 import org.slf4j.Logger;
 
@@ -24,6 +29,8 @@ import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
 
 import java.nio.charset.StandardCharsets;
+import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 import java.util.concurrent.CompletableFuture;
 
@@ -64,6 +71,15 @@ public class Ddi {
 
         generator.addProvider(event.includeServer(), new DdiTags(output, lookupProvider, existingFileHelper));
         generator.addProvider(event.includeServer(), new AdvProvider(output, lookupProvider, existingFileHelper));
+        generator.addProvider(event.includeServer(), new DdiBlockTagProvider(output, lookupProvider, existingFileHelper));
+        generator.addProvider(event.includeServer(), new LootTableProvider(output, Set.of(), List.of(
+                new LootTableProvider.SubProviderEntry(
+                        DdiBlockLootProvider::new,
+                        LootContextParamSets.BLOCK
+                )
+            ),
+                lookupProvider
+        ));
     }
 
     private void commonSetup(FMLCommonSetupEvent event) {
@@ -80,13 +96,6 @@ public class Ddi {
                             .map(holder -> new ItemStack(holder.get()))
                             .toList()
             );
-            // 多分BlockItemをITEMSに入れてるから要らないかも
-//            event.acceptAll(
-//                    DdiBlocks.BLOCKS.getEntries()
-//                            .stream()
-//                            .map(holder -> new ItemStack(holder.get()))
-//                            .toList()
-//            );
         }
     }
 
