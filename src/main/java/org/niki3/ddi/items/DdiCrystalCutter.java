@@ -1,9 +1,12 @@
 package org.niki3.ddi.items;
 
+import net.minecraft.core.Holder;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.DiggerItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Tier;
+import net.minecraft.world.item.enchantment.Enchantment;
+import net.minecraft.world.item.enchantment.Enchantments;
 import org.jetbrains.annotations.NotNull;
 
 public class DdiCrystalCutter extends DiggerItem {
@@ -17,4 +20,11 @@ public class DdiCrystalCutter extends DiggerItem {
         return net.neoforged.neoforge.common.ItemAbilities.DEFAULT_HOE_ACTIONS.contains(itemAbility);
     }
 
+    @Override
+    public boolean isPrimaryItemFor(@NotNull ItemStack stack, @NotNull Holder<Enchantment> enchantment){
+        if (enchantment.is(Enchantments.SILK_TOUCH)){
+            return false;
+        }
+        return super.isPrimaryItemFor(stack, enchantment);
+    }
 }
