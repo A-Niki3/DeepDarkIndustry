@@ -6,13 +6,13 @@ import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.loot.LootTableProvider;
 import net.minecraft.world.item.*;
-import net.minecraft.world.level.storage.loot.parameters.LootContextParamSet;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 import org.niki3.ddi.advancement.AdvProvider;
-import org.niki3.ddi.blocks.DdiBlockLootProvider;
-import org.niki3.ddi.blocks.DdiBlockTagProvider;
+import org.niki3.ddi.blocks.Providers.DdiBlockLootProvider;
+import org.niki3.ddi.blocks.Providers.DdiBlockTagProvider;
+import org.niki3.ddi.items.Providers.DdiTags;
 import org.niki3.ddi.registration.*;
 import org.slf4j.Logger;
 
@@ -61,6 +61,7 @@ public class Ddi {
         DdiItems.ITEMS.register(modEventBus);
         DdiBlocks.BLOCKS.register(modEventBus);
         DdiCreativeTab.TAB.register(modEventBus);
+        DdiBlockEntities.BLOCK_ENTITIES.register(modEventBus);
     }
 
     private void gatherData(GatherDataEvent event){
