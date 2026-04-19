@@ -1,4 +1,4 @@
-package org.niki3.ddi.blocks;
+package org.niki3.ddi.blocks.Providers;
 
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.loot.BlockLootSubProvider;
