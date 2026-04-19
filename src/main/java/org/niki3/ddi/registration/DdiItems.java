@@ -41,4 +41,8 @@ public class DdiItems {
     public static final DeferredHolder<Item, Item> SIMPLE_MACHINE_FRAME_ITEM = ITEMS.register("simple_machine_frame",() -> new BlockItem(
         DdiBlocks.SIMPLE_MACHINE_FRAME.get(), new Item.Properties()
     ));
+
+    public static final DeferredHolder<Item, Item> THERMAL_GENERATOR = ITEMS.register("thermal_generator",() -> new BlockItem(
+            DdiBlocks.THERMAL_GENERATOR.get(), new Item.Properties()
+    ));
 }

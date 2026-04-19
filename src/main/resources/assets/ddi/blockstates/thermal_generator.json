@@ -1,10 +1,19 @@
 {
   "variants": {
-    "lit=false": {
-      "model": "ddi:block/thermal_generator",
+    "facing=north": {
+      "model": "ddi:block/thermal_generator"
     },
-    "lit=true": {
-      "model": "minecraft:block/thermal_generator_on",
+    "facing=south": {
+      "model": "ddi:block/thermal_generator",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "ddi:block/thermal_generator",
+      "y": 270
+    },
+    "facing=east": {
+      "model": "ddi:block/thermal_generator",
+      "y": 90
     }
   }
 }

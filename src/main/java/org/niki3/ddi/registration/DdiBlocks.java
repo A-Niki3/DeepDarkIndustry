@@ -7,6 +7,7 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
+import org.niki3.ddi.blocks.DdiThermalGenerator;
 
 public class DdiBlocks{
     private DdiBlocks(){}
@@ -20,5 +21,12 @@ public class DdiBlocks{
                     .sound(SoundType.STONE)
                     .strength(1.5f,6.0f)
                     .noOcclusion()
+            ));
+
+    public static final DeferredHolder<Block, Block> THERMAL_GENERATOR = BLOCKS.register("thermal_generator",
+            () -> new DdiThermalGenerator(BlockBehaviour.Properties.of()
+                    .requiresCorrectToolForDrops()
+                    .sound(SoundType.STONE)
+                    .strength(1.5f,6.0f)
             ));
 }
