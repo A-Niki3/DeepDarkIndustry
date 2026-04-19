@@ -1,4 +1,4 @@
-package org.niki3.ddi.registration;
+package org.niki3.ddi.items.Providers;
 
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
@@ -10,6 +10,7 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.NotNull;
+import org.niki3.ddi.registration.DdiItems;
 
 import java.util.concurrent.CompletableFuture;
 
