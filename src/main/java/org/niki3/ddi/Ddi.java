@@ -48,6 +48,7 @@ public class Ddi {
         modEventBus.addListener(this::gatherData);
 
         addRegistrationListeners(modEventBus);
+        modEventBus.addListener(DdiClient::onRegisterMenuScreens);
 
         NeoForge.EVENT_BUS.register(this);
 

@@ -59,10 +59,15 @@ public class DdiThermalGenerator extends BaseEntityBlock {
 
     @Override
     public MenuProvider getMenuProvider(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos){
-        return new SimpleMenuProvider(
-                (id, inventory, player) -> new FurnaceMenu(id, inventory),
-                Component.translatable("block.ddi.menu.thermal_generator")
-        );
+        BlockEntity be = level.getBlockEntity(pos);
+
+        if (be instanceof DdiThermalGeneratorBlockEntity generator) {
+            return new SimpleMenuProvider(
+                    (id, inventory, player) -> new DdiThermalGeneratorMenu(id, inventory, generator.getContainer(), generator),
+                    Component.translatable("block.ddi.menu.thermal_generator")
+            );
+        }
+        return null;
     }
 
     @Override

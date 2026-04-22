@@ -4,6 +4,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.world.Container;
 import net.minecraft.world.ContainerHelper;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.item.ItemStack;
@@ -15,8 +16,11 @@ import org.jetbrains.annotations.NotNull;
 import org.niki3.ddi.registration.DdiBlockEntities;
 
 public class DdiThermalGeneratorBlockEntity extends BlockEntity {
-    private int burnTime = 0;
-    private int maxBurnTime = 0;
+    public int burnTime = 0;
+    public int maxBurnTime = 0;
+
+    public int energy = 0;
+    public int maxEnergy = 0;
 
     private final SimpleContainer inventory = new SimpleContainer(1);
 
@@ -29,6 +33,7 @@ public class DdiThermalGeneratorBlockEntity extends BlockEntity {
 
         if(be.burnTime > 0){
             be.burnTime--;
+            setChanged(level, pos, state);
         }
 
         if(be.burnTime == 0){
@@ -42,6 +47,8 @@ public class DdiThermalGeneratorBlockEntity extends BlockEntity {
                     be.maxBurnTime = fuel;
 
                     stack.shrink(1);
+
+                    setChanged(level, pos, state);
                 }
             }
         }
@@ -74,5 +81,25 @@ public class DdiThermalGeneratorBlockEntity extends BlockEntity {
         NonNullList<ItemStack> list = NonNullList.withSize(1, ItemStack.EMPTY);
         ContainerHelper.loadAllItems(tag, list, provider);
         inventory.setItem(0, list.get(0));
+    }
+
+    public Container getContainer() {
+        return inventory;
+    }
+
+    public int getBurnTime(){
+        return burnTime;
+    }
+
+    public int getMaxBurnTime() {
+        return maxBurnTime;
+    }
+
+    public int getEnergy() {
+        return energy;
+    }
+
+    public int getMaxEnergy() {
+        return maxEnergy;
     }
 }
