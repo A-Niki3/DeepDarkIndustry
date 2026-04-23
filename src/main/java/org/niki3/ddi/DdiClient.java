@@ -20,7 +20,7 @@ public class DdiClient {
     public DdiClient(ModContainer container, IEventBus modEventBus) {
         container.registerExtensionPoint(IConfigScreenFactory.class, ConfigurationScreen::new);
     }
-    @SubscribeEvent
+
     public static void onRegisterMenuScreens(RegisterMenuScreensEvent event){
         event.register(
                 DdiMenuScreen.THERMAL_GENERATOR.get(),

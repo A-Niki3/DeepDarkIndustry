@@ -1,6 +1,7 @@
 package org.niki3.ddi.blocks.ThermalGenerator;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
@@ -12,15 +13,25 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.AbstractFurnaceBlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.neoforged.neoforge.capabilities.Capabilities;
+import net.neoforged.neoforge.energy.EnergyStorage;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import org.niki3.ddi.registration.DdiBlockEntities;
+
+import java.security.DrbgParameters;
+import java.util.Objects;
 
 public class DdiThermalGeneratorBlockEntity extends BlockEntity {
     public int burnTime = 0;
     public int maxBurnTime = 0;
 
-    public int energy = 0;
-    public int maxEnergy = 0;
+    private final EnergyStorage energyStorage = new EnergyStorage(10000,0,100,0){
+        @Override
+        public boolean canReceive(){
+            return false;
+        }
+    };
 
     private final SimpleContainer inventory = new SimpleContainer(1);
 
@@ -33,6 +44,9 @@ public class DdiThermalGeneratorBlockEntity extends BlockEntity {
 
         if(be.burnTime > 0){
             be.burnTime--;
+
+            be.energyStorage.receiveEnergy(20,false); // 1tick 20FE
+
             setChanged(level, pos, state);
         }
 
@@ -52,18 +66,19 @@ public class DdiThermalGeneratorBlockEntity extends BlockEntity {
                 }
             }
         }
-
+        /*
         if(be.burnTime % 20 == 0){
             System.out.println("Burn: " + be.burnTime);
         }
+         */
     }
-
     @Override
     protected void saveAdditional(@NotNull CompoundTag tag, HolderLookup.@NotNull Provider provider){
         super.saveAdditional(tag, provider);
 
         tag.putInt("BurnTime", burnTime);
         tag.putInt("MaxBurnTime", maxBurnTime);
+        tag.put("Energy", energyStorage.serializeNBT(provider));
 
         NonNullList<ItemStack> list = NonNullList.withSize(1, ItemStack.EMPTY);
         list.set(0, inventory.getItem(0));
@@ -78,6 +93,10 @@ public class DdiThermalGeneratorBlockEntity extends BlockEntity {
         burnTime = tag.getInt("BurnTime");
         maxBurnTime = tag.getInt("MaxBurnTime");
 
+        if (tag.contains("Energy")){
+            energyStorage.deserializeNBT(provider, Objects.requireNonNull(tag.get("Energy")));
+        }
+
         NonNullList<ItemStack> list = NonNullList.withSize(1, ItemStack.EMPTY);
         ContainerHelper.loadAllItems(tag, list, provider);
         inventory.setItem(0, list.get(0));
@@ -87,6 +106,9 @@ public class DdiThermalGeneratorBlockEntity extends BlockEntity {
         return inventory;
     }
 
+    public EnergyStorage getEnergyStorage(){
+        return energyStorage;
+    }
     public int getBurnTime(){
         return burnTime;
     }
@@ -96,10 +118,10 @@ public class DdiThermalGeneratorBlockEntity extends BlockEntity {
     }
 
     public int getEnergy() {
-        return energy;
+        return energyStorage.getEnergyStored();
     }
 
     public int getMaxEnergy() {
-        return maxEnergy;
+        return energyStorage.getMaxEnergyStored();
     }
 }

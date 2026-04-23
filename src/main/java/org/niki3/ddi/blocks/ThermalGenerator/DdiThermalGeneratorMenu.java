@@ -89,7 +89,7 @@ public class DdiThermalGeneratorMenu extends AbstractContainerMenu {
     }
 
     public DdiThermalGeneratorMenu(int id, Inventory plInv, RegistryFriendlyByteBuf buf) {
-        this(id, plInv, new SimpleContainer(1), (DdiThermalGeneratorBlockEntity) plInv.player.level().getBlockEntity(buf.readBlockPos()));
+        this(id, plInv, new SimpleContainer(1), null);
     }
 
     public int getEnergy() {

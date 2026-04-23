@@ -49,6 +49,7 @@ public class Ddi {
 
         addRegistrationListeners(modEventBus);
         modEventBus.addListener(DdiClient::onRegisterMenuScreens);
+        modEventBus.addListener(DdiCapabilities::registerCapabilities);
 
         NeoForge.EVENT_BUS.register(this);
 
@@ -63,6 +64,7 @@ public class Ddi {
         DdiBlocks.BLOCKS.register(modEventBus);
         DdiCreativeTab.TAB.register(modEventBus);
         DdiBlockEntities.BLOCK_ENTITIES.register(modEventBus);
+        DdiMenuScreen.MENUS.register(modEventBus);
     }
 
     private void gatherData(GatherDataEvent event){

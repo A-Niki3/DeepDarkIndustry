@@ -7,7 +7,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 
 public class DdiThermalGeneratorScreen extends AbstractContainerScreen<DdiThermalGeneratorMenu> {
-    private static final ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath("ddi", "textures/gui/thermal_generator.png");
+    private static final ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath("ddi", "textures/gui/container/thermal_generator.png");
     private static final ResourceLocation ENERGY = ResourceLocation.fromNamespaceAndPath("ddi","textures/gui/sprites/container/energy52_24.png");
     private static final ResourceLocation FIRE = ResourceLocation.fromNamespaceAndPath("minecraft","textures/gui/sprites/container/furnace/lit_progress.png");
 
