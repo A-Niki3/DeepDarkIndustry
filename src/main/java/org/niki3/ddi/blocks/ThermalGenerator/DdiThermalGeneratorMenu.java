@@ -25,7 +25,7 @@ public class DdiThermalGeneratorMenu extends AbstractContainerMenu {
         this(id, plInv, new SimpleContainer(1), null);
     }
     public DdiThermalGeneratorMenu(int id, Inventory plInv, Container container, DdiThermalGeneratorBlockEntity blockEntity){
-        super(DdiMenuScreen.THERMAL_GENERATOR.get(), id); // nullはあとでMenuType差し替える
+        super(DdiMenuScreen.THERMAL_GENERATOR.get(), id);
 
         this.container = container;
         this.blockEntity = blockEntity;
@@ -74,17 +74,17 @@ public class DdiThermalGeneratorMenu extends AbstractContainerMenu {
                 maxEnergy = value;
             }
         });
-
-        this.addSlot(new Slot(container, 0, 80, 34));
-
+        // 燃料
+        this.addSlot(new Slot(container, 0, 56, 53));
+        // インベントリ
         for (int i = 0; i < 3; i++){
             for (int j = 0; j < 9; j++){
                 this.addSlot(new Slot(plInv, j + i * 9 + 9, 8 + j * 18, 84 + i * 18));
             }
         }
-
+        // ホットバー
         for (int i = 0; i < 9; i++){
-            this.addSlot(new Slot(plInv, i, 8 + i * 19, 142));
+            this.addSlot(new Slot(plInv, i, 8 + i * 18, 142));
         }
     }
 
@@ -143,5 +143,9 @@ public class DdiThermalGeneratorMenu extends AbstractContainerMenu {
 
     public Container getContainer() {
         return container;
+    }
+
+    public DdiThermalGeneratorBlockEntity getBlockEntity() {
+        return blockEntity;
     }
 }
