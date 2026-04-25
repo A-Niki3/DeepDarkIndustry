@@ -3,8 +3,8 @@
 	"parent": "block/block",
 	"texture_size": [64, 64],
 	"textures": {
-		"0": "thermal_generator_fire",
-		"particle": "ddi:block/thermal_generator_fire"
+		"0": "ddi:block/thermal_gen/thermal_generator_fire",
+		"particle": "ddi:block/thermal_gen/thermal_generator_fire"
 	},
 	"elements": [
 		{
