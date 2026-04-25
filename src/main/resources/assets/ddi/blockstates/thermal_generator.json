@@ -1,18 +1,33 @@
 {
   "variants": {
-    "facing=north": {
+    "facing=north,lit=false": {
       "model": "ddi:block/thermal_generator"
     },
-    "facing=south": {
+    "facing=north,lit=true": {
+      "model": "ddi:block/thermal_generator_fire"
+    },
+    "facing=south,lit=false": {
       "model": "ddi:block/thermal_generator",
       "y": 180
     },
-    "facing=west": {
+    "facing=south,lit=true": {
+      "model": "ddi:block/thermal_generator_fire",
+      "y": 180
+    },
+    "facing=west,lit=false": {
       "model": "ddi:block/thermal_generator",
       "y": 270
     },
-    "facing=east": {
+    "facing=west,lit=true": {
+      "model": "ddi:block/thermal_generator_fire",
+      "y": 270
+    },
+    "facing=east,lit=false": {
       "model": "ddi:block/thermal_generator",
+      "y": 90
+    },
+    "facing=east,lit=true": {
+      "model": "ddi:block/thermal_generator_fire",
       "y": 90
     }
   }
