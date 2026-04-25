@@ -26,10 +26,10 @@ public class DdiThermalGeneratorBlockEntity extends BlockEntity {
     public int burnTime = 0;
     public int maxBurnTime = 0;
 
-    private final EnergyStorage energyStorage = new EnergyStorage(10000,0,100,0){
+    private final EnergyStorage energyStorage = new EnergyStorage(10000,20,100,0){
         @Override
         public boolean canReceive(){
-            return false;
+            return true;
         }
     };
 
@@ -42,15 +42,19 @@ public class DdiThermalGeneratorBlockEntity extends BlockEntity {
     public static void tick(Level level, BlockPos pos, BlockState state, DdiThermalGeneratorBlockEntity be){
         if (level.isClientSide) return;
 
+        boolean hasSpace = be.energyStorage.getEnergyStored() < be.energyStorage.getMaxEnergyStored();
+
         if(be.burnTime > 0){
             be.burnTime--;
 
-            be.energyStorage.receiveEnergy(20,false); // 1tick 20FE
+            if(hasSpace) {
+                be.energyStorage.receiveEnergy(20, false); // 1tick 20FE
+            }
 
             setChanged(level, pos, state);
         }
 
-        if(be.burnTime == 0){
+        if(be.burnTime == 0 && hasSpace){
             ItemStack stack = be.inventory.getItem(0);
 
             if(!stack.isEmpty()){
