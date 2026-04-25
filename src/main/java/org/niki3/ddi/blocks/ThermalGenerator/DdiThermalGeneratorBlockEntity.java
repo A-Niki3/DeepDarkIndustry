@@ -66,11 +66,12 @@ public class DdiThermalGeneratorBlockEntity extends BlockEntity {
                 }
             }
         }
-        /*
-        if(be.burnTime % 20 == 0){
-            System.out.println("Burn: " + be.burnTime);
+
+        boolean isLit = be.burnTime > 0;
+
+        if(state.getValue(DdiThermalGenerator.LIT) != isLit){
+            level.setBlock(pos, state.setValue(DdiThermalGenerator.LIT, isLit), 3);
         }
-         */
     }
     @Override
     protected void saveAdditional(@NotNull CompoundTag tag, HolderLookup.@NotNull Provider provider){
