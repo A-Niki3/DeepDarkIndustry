@@ -8,8 +8,8 @@ import net.minecraft.world.entity.player.Inventory;
 
 public class DdiThermalGeneratorScreen extends AbstractContainerScreen<DdiThermalGeneratorMenu> {
     private static final ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath("ddi", "textures/gui/container/thermal_generator.png");
-    private static final ResourceLocation ENERGY = ResourceLocation.fromNamespaceAndPath("ddi","textures/gui/sprites/container/energy52_24.png");
-    private static final ResourceLocation FIRE = ResourceLocation.fromNamespaceAndPath("minecraft","textures/gui/sprites/container/furnace/lit_progress.png");
+    private static final ResourceLocation ENERGY = ResourceLocation.fromNamespaceAndPath("ddi","textures/gui/container/energy52_24.png");
+    private static final ResourceLocation FIRE = ResourceLocation.withDefaultNamespace("container/furnace/lit_progress");
 
     public DdiThermalGeneratorScreen(DdiThermalGeneratorMenu menu, Inventory inventory, Component title){
         super(menu, inventory, title);
@@ -26,7 +26,7 @@ public class DdiThermalGeneratorScreen extends AbstractContainerScreen<DdiTherma
             int fullHeight = 52;
             int height = energy * fullHeight / maxEnergy;
 
-            gui.blit(ENERGY, leftPos + 116, topPos + 20 + (fullHeight - height), 0, fullHeight - height, 24, height);
+            gui.blit(ENERGY, leftPos + 112, topPos + 17 + (fullHeight - height) , 16, 53 - height, 24, height,54,54);
         }
 
         int burn = menu.getBurnTime();
@@ -36,7 +36,7 @@ public class DdiThermalGeneratorScreen extends AbstractContainerScreen<DdiTherma
             int fullHeight = 14;
             int height = burn * fullHeight / maxBurn;
 
-            gui.blit(FIRE, leftPos + 56, topPos + 36 + (fullHeight - height), 0, fullHeight - height, 14, height);
+            gui.blitSprite(FIRE, 14, 14, 0, fullHeight - height, leftPos + 56, topPos + 36 + fullHeight - height, 14, height);
         }
     }
 }
