@@ -2,17 +2,14 @@ package org.niki3.ddi.blocks.ThermalGenerator;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
-import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.world.Container;
-import net.minecraft.world.ContainerHelper;
-import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.entity.AbstractFurnaceBlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.energy.EnergyStorage;
+import net.neoforged.neoforge.items.ItemStackHandler;
 import org.jetbrains.annotations.NotNull;
 import org.niki3.ddi.registration.DdiBlockEntities;
 
@@ -29,7 +26,12 @@ public class DdiThermalGeneratorBlockEntity extends BlockEntity {
         }
     };
 
-    private final SimpleContainer inventory = new SimpleContainer(1);
+    private final ItemStackHandler inventory = new ItemStackHandler(1){
+        @Override
+        public boolean isItemValid(int slot, ItemStack stack){
+            return stack.getBurnTime(RecipeType.SMELTING) > 0;
+        }
+    };
 
     public DdiThermalGeneratorBlockEntity(BlockPos pos, BlockState state){
         super(DdiBlockEntities.THERMAL_GENERATOR.get(), pos, state);
@@ -51,10 +53,10 @@ public class DdiThermalGeneratorBlockEntity extends BlockEntity {
         }
 
         if(be.burnTime == 0 && hasSpace){
-            ItemStack stack = be.inventory.getItem(0);
+            ItemStack stack = be.inventory.getStackInSlot(0);
 
             if(!stack.isEmpty()){
-                int fuel = AbstractFurnaceBlockEntity.getFuel().getOrDefault(stack.getItem(), 0);
+                int fuel = stack.getBurnTime(RecipeType.SMELTING);
 
                 if(fuel > 0){
                     be.burnTime = fuel;
@@ -80,11 +82,7 @@ public class DdiThermalGeneratorBlockEntity extends BlockEntity {
         tag.putInt("BurnTime", burnTime);
         tag.putInt("MaxBurnTime", maxBurnTime);
         tag.put("Energy", energyStorage.serializeNBT(provider));
-
-        NonNullList<ItemStack> list = NonNullList.withSize(1, ItemStack.EMPTY);
-        list.set(0, inventory.getItem(0));
-
-        ContainerHelper.saveAllItems(tag, list, provider);
+        tag.put("Inventory", inventory.serializeNBT(provider));
     }
 
     @Override
@@ -97,13 +95,12 @@ public class DdiThermalGeneratorBlockEntity extends BlockEntity {
         if (tag.contains("Energy")){
             energyStorage.deserializeNBT(provider, Objects.requireNonNull(tag.get("Energy")));
         }
-
-        NonNullList<ItemStack> list = NonNullList.withSize(1, ItemStack.EMPTY);
-        ContainerHelper.loadAllItems(tag, list, provider);
-        inventory.setItem(0, list.get(0));
+        if (tag.contains("inventory")){
+            inventory.deserializeNBT(provider, tag.getCompound("Inventory"));
+        }
     }
 
-    public Container getContainer() {
+    public ItemStackHandler getInventory(){
         return inventory;
     }
 

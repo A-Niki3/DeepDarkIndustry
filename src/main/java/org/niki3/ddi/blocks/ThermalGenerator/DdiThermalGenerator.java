@@ -4,12 +4,12 @@ import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
+import net.minecraft.util.Mth;
 import net.minecraft.world.Containers;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.SimpleMenuProvider;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.BaseEntityBlock;
@@ -25,6 +25,7 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.phys.BlockHitResult;
+import net.neoforged.neoforge.items.ItemStackHandler;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.niki3.ddi.registration.DdiBlockEntities;
@@ -68,7 +69,7 @@ public class DdiThermalGenerator extends BaseEntityBlock {
 
         if (be instanceof DdiThermalGeneratorBlockEntity generator) {
             return new SimpleMenuProvider(
-                    (id, inventory, player) -> new DdiThermalGeneratorMenu(id, inventory, generator.getContainer(), generator),
+                    (id, inventory, player) -> new DdiThermalGeneratorMenu(id, inventory, generator.getInventory(), generator),
                     Component.translatable("block.ddi.menu.thermal_generator")
             );
         }
@@ -103,7 +104,17 @@ public class DdiThermalGenerator extends BaseEntityBlock {
             BlockEntity be = level.getBlockEntity(pos);
 
             if(be instanceof DdiThermalGeneratorBlockEntity generatorBlock){
-                Containers.dropContents(level, pos, generatorBlock.getContainer());
+                ItemStackHandler inv = generatorBlock.getInventory();
+
+                for(int i = 0; i < inv.getSlots(); i++){
+                    Containers.dropItemStack(
+                            level,
+                            pos.getX(),
+                            pos.getY(),
+                            pos.getZ(),
+                            inv.getStackInSlot(i)
+                    );
+                }
             }
 
             super.onRemove(state, level, pos, newState, isMoving);
@@ -119,7 +130,17 @@ public class DdiThermalGenerator extends BaseEntityBlock {
     public int getAnalogOutputSignal(@NotNull BlockState state, Level level, @NotNull BlockPos pos){
         BlockEntity be = level.getBlockEntity(pos);
         if(be instanceof DdiThermalGeneratorBlockEntity generatorBlock){
-            return AbstractContainerMenu.getRedstoneSignalFromContainer(generatorBlock.getContainer());
+            ItemStackHandler inv = generatorBlock.getInventory();
+
+            int filled = 0;
+            int total = inv.getSlots();
+
+            for(int i = 0; i < total; i++){
+                if(!inv.getStackInSlot(i).isEmpty()){
+                    filled++;
+                }
+            }
+            return Mth.floor((float) filled / total * 15);
         }
         return 0;
     }

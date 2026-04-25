@@ -12,5 +12,11 @@ public class DdiCapabilities {
                 DdiBlockEntities.THERMAL_GENERATOR.get(),
                 (be, side) -> be.getEnergyStorage()
         );
+
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                DdiBlockEntities.THERMAL_GENERATOR.get(),
+                (be, side) -> be.getInventory()
+        );
     }
 }

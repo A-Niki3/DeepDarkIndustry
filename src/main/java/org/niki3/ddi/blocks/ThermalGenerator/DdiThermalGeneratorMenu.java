@@ -1,33 +1,30 @@
 package org.niki3.ddi.blocks.ThermalGenerator;
 
 import net.minecraft.network.RegistryFriendlyByteBuf;
-import net.minecraft.world.Container;
-import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.DataSlot;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
+import net.neoforged.neoforge.items.ItemStackHandler;
+import net.neoforged.neoforge.items.SlotItemHandler;
 import org.jetbrains.annotations.NotNull;
 import org.niki3.ddi.registration.DdiMenuScreen;
 
 public class DdiThermalGeneratorMenu extends AbstractContainerMenu {
 
-    private final Container container;
+    private final ItemStackHandler inventory;
     private final DdiThermalGeneratorBlockEntity blockEntity;
     private int burnTime;
     private int maxBurnTime;
     private int energy;
     private int maxEnergy;
 
-    public DdiThermalGeneratorMenu(int id, Inventory plInv){
-        this(id, plInv, new SimpleContainer(1), null);
-    }
-    public DdiThermalGeneratorMenu(int id, Inventory plInv, Container container, DdiThermalGeneratorBlockEntity blockEntity){
+    public DdiThermalGeneratorMenu(int id, Inventory plInv, ItemStackHandler inventory, DdiThermalGeneratorBlockEntity blockEntity){
         super(DdiMenuScreen.THERMAL_GENERATOR.get(), id);
 
-        this.container = container;
+        this.inventory = inventory;
         this.blockEntity = blockEntity;
 
         addDataSlot(new DataSlot() {
@@ -75,7 +72,7 @@ public class DdiThermalGeneratorMenu extends AbstractContainerMenu {
             }
         });
         // 燃料
-        this.addSlot(new Slot(container, 0, 56, 53));
+        this.addSlot(new SlotItemHandler(inventory, 0, 56, 53));
         // インベントリ
         for (int i = 0; i < 3; i++){
             for (int j = 0; j < 9; j++){
@@ -89,7 +86,7 @@ public class DdiThermalGeneratorMenu extends AbstractContainerMenu {
     }
 
     public DdiThermalGeneratorMenu(int id, Inventory plInv, RegistryFriendlyByteBuf buf) {
-        this(id, plInv, new SimpleContainer(1), null);
+        this(id, plInv, new ItemStackHandler(1), null);
     }
 
     public int getEnergy() {
@@ -110,6 +107,7 @@ public class DdiThermalGeneratorMenu extends AbstractContainerMenu {
 
     @Override
     public @NotNull ItemStack quickMoveStack(@NotNull Player player, int index) {
+        // 燃料以外のアイテムが一瞬だけ入るように見える現象がある
         ItemStack original = ItemStack.EMPTY;
         Slot slot = this.slots.get(index);
 
@@ -141,11 +139,11 @@ public class DdiThermalGeneratorMenu extends AbstractContainerMenu {
         return true;
     }
 
-    public Container getContainer() {
-        return container;
-    }
-
     public DdiThermalGeneratorBlockEntity getBlockEntity() {
         return blockEntity;
+    }
+
+    public ItemStackHandler getInventory() {
+        return inventory;
     }
 }
