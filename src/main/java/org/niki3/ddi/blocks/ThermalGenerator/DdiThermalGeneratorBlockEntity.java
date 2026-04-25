@@ -1,7 +1,6 @@
 package org.niki3.ddi.blocks.ThermalGenerator;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
@@ -13,13 +12,10 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.AbstractFurnaceBlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import net.neoforged.neoforge.capabilities.Capabilities;
 import net.neoforged.neoforge.energy.EnergyStorage;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 import org.niki3.ddi.registration.DdiBlockEntities;
 
-import java.security.DrbgParameters;
 import java.util.Objects;
 
 public class DdiThermalGeneratorBlockEntity extends BlockEntity {
