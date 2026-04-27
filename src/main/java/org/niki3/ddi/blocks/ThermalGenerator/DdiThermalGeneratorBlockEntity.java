@@ -1,6 +1,7 @@
 package org.niki3.ddi.blocks.ThermalGenerator;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.item.ItemStack;
@@ -8,6 +9,7 @@ import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.neoforged.neoforge.capabilities.Capabilities;
 import net.neoforged.neoforge.energy.EnergyStorage;
 import net.neoforged.neoforge.items.ItemStackHandler;
 import org.jetbrains.annotations.NotNull;
@@ -18,6 +20,8 @@ import java.util.Objects;
 public class DdiThermalGeneratorBlockEntity extends BlockEntity {
     public int burnTime = 0;
     public int maxBurnTime = 0;
+
+    private static final int MAX_OUTPUT = 100;
 
     private final EnergyStorage energyStorage = new EnergyStorage(10000,20,100,0){
         @Override
@@ -65,6 +69,39 @@ public class DdiThermalGeneratorBlockEntity extends BlockEntity {
                     stack.shrink(1);
 
                     setChanged(level, pos, state);
+                }
+            }
+        }
+
+        int energy = be.energyStorage.getEnergyStored();
+        if(energy > 0){
+            for(Direction direction : Direction.values()){
+                BlockPos targetPos = pos.relative(direction);
+                BlockEntity target = level.getBlockEntity(targetPos);
+
+                if(target == null) continue;
+
+                var capability = level.getCapability(
+                        Capabilities.EnergyStorage.BLOCK,
+                        targetPos,
+                        direction.getOpposite()
+                );
+                if(capability != null){
+                    int extractAmount = Math.min(energy, MAX_OUTPUT);
+
+                    // 受け取り可能量チェック
+                    int received = capability.receiveEnergy(extractAmount, true);
+
+                    if(received > 0){
+                        int extracted = be.energyStorage.extractEnergy(received, false);
+                        capability.receiveEnergy(extracted, false);
+
+                        energy -= extracted;
+
+                        if(energy <= 0){
+                            break;
+                        }
+                    }
                 }
             }
         }
