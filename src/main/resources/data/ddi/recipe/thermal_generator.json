@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "DAD",
+    "GSG",
+    "DVD"
+  ],
+  "key": {
+    "A": {
+      "item": "ddi:sculk_amplifier"
+    },
+    "D": {
+      "item": "minecraft:cobbled_deepslate"
+    },
+    "S": {
+      "item": "ddi:simple_machine_frame"
+    },
+    "G": {
+      "item": "ddi:sculk_gear"
+    },
+    "V": {
+      "item": "ddi:sculk_vibrator"
+    }
+  },
+  "result": {
+    "id": "ddi:thermal_generator",
+    "count": 1
+  }
+}

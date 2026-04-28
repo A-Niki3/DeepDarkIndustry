@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "IDI",
+    "CGC",
+    "IDI"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "D": {
+      "item": "minecraft:cobbled_deepslate"
+    },
+    "C": {
+      "item": "ddi:sculk_capacitor"
+    },
+    "G": {
+      "item": "ddi:sculk_gear"
+    }
+  },
+  "result": {
+    "id": "ddi:simple_machine_frame",
+    "count": 1
+  }
+}
