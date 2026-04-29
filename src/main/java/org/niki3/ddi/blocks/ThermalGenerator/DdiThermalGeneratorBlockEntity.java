@@ -23,7 +23,7 @@ public class DdiThermalGeneratorBlockEntity extends BlockEntity {
 
     private static final int MAX_OUTPUT = 100;
 
-    private final EnergyStorage energyStorage = new EnergyStorage(10000,20,100,0){
+    private final EnergyStorage energyStorage = new EnergyStorage(64000,20,100,0){
         @Override
         public boolean canReceive(){
             return true;
