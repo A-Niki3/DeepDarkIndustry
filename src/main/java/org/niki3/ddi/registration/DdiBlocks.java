@@ -28,4 +28,12 @@ public class DdiBlocks{
                     .strength(1.5f,6.0f)
                     .noOcclusion()
             ));
+
+    public static final DeferredHolder<Block, Block> VIBRATION_FURNACE = BLOCKS.register("vibration_furnace",
+            () -> new DdiVibrationFurnace(BlockBehaviour.Properties.of()
+                    .requiresCorrectToolForDrops()
+                    .sound(SoundType.STONE)
+                    .strength(1.5f,6.0f)
+                    .noOcclusion()
+            ));
 }
