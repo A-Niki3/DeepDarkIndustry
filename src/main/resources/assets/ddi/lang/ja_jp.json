@@ -14,8 +14,10 @@
 
   "block.ddi.simple_machine_frame": "シンプルマシンフレーム",
   "block.ddi.thermal_generator": "火力発電機",
+  "block.ddi.vibration_furnace": "振動式精錬炉",
 
   "block.ddi.menu.thermal_generator": "火力発電機",
+  "block.ddi.menu.vibration_furnace": "振動式精錬炉",
 
   "advancements.ddi.exp.root.title": "Deep Dark Industry",
   "advancements.ddi.exp.root.desc": "これがDDIだ！",

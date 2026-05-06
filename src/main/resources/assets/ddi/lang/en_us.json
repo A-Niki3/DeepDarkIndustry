@@ -15,8 +15,10 @@
 
   "block.ddi.simple_machine_frame": "Simple machine frame",
   "block.ddi.thermal_generator": "thermal generator",
+  "block.ddi.vibration_furnace": "vibration furnace",
 
   "block.ddi.menu.thermal_generator": "Thermal Generator",
+  "block.ddi.menu.vibration_furnace": "Vibration Furnace",
 
   "advancements.ddi.exp.root.title": "Deep Dark Industry",
   "advancements.ddi.exp.root.desc": "This is DDI",
