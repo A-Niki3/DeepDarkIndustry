@@ -45,4 +45,8 @@ public class DdiItems {
     public static final DeferredHolder<Item, Item> THERMAL_GENERATOR = ITEMS.register("thermal_generator",() -> new BlockItem(
             DdiBlocks.THERMAL_GENERATOR.get(), new Item.Properties()
     ));
+
+    public static final DeferredHolder<Item, Item> VIBRATION_FURNACE = ITEMS.register("vibration_furnace",() -> new BlockItem(
+            DdiBlocks.VIBRATION_FURNACE.get(), new Item.Properties()
+    ));
 }
