@@ -6,6 +6,7 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import org.niki3.ddi.Ddi;
 import org.niki3.ddi.blocks.ThermalGenerator.DdiThermalGeneratorBlockEntity;
+import org.niki3.ddi.blocks.VibrationFurnace.DdiVibrationFurnaceBlockEntity;
 
 public class DdiBlockEntities {
     DdiBlockEntities(){}
@@ -20,10 +21,10 @@ public class DdiBlockEntities {
             ).build(null)
     );
 
-    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<DdiThermalGeneratorBlockEntity>> VIBRATION_FURNACE = BLOCK_ENTITIES.register(
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<DdiVibrationFurnaceBlockEntity>> VIBRATION_FURNACE = BLOCK_ENTITIES.register(
             "vibration_furnace",
             () -> BlockEntityType.Builder.of(
-                    DdiThermalGeneratorBlockEntity::new,
+                    DdiVibrationFurnaceBlockEntity::new,
                     DdiBlocks.VIBRATION_FURNACE.get()
             ).build(null)
     );
