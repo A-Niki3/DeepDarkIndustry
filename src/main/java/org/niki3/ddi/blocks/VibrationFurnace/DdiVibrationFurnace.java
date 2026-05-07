@@ -86,7 +86,7 @@ public class DdiVibrationFurnace extends BaseEntityBlock {
 
     @Override
     public @Nullable BlockEntity newBlockEntity(@NotNull BlockPos pos, @NotNull BlockState state) {
-        return DdiVibrationFurnaceBlockEntity(pos, state);
+        return new DdiVibrationFurnaceBlockEntity(pos, state);
     }
 
     @Override
