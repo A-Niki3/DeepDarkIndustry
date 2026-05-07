@@ -6,6 +6,7 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import org.niki3.ddi.blocks.ThermalGenerator.DdiThermalGenerator;
+import org.niki3.ddi.blocks.VibrationFurnace.DdiVibrationFurnace;
 
 public class DdiBlocks{
     private DdiBlocks(){}
