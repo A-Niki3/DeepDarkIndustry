@@ -19,4 +19,12 @@ public class DdiBlockEntities {
                     DdiBlocks.THERMAL_GENERATOR.get()
             ).build(null)
     );
+
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<DdiThermalGeneratorBlockEntity>> VIBRATION_FURNACE = BLOCK_ENTITIES.register(
+            "vibration_furnace",
+            () -> BlockEntityType.Builder.of(
+                    DdiThermalGeneratorBlockEntity::new,
+                    DdiBlocks.VIBRATION_FURNACE.get()
+            ).build(null)
+    );
 }
