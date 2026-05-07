@@ -132,7 +132,7 @@ public class DdiThermalGeneratorBlockEntity extends BlockEntity {
         if (tag.contains("Energy")){
             energyStorage.deserializeNBT(provider, Objects.requireNonNull(tag.get("Energy")));
         }
-        if (tag.contains("inventory")){
+        if (tag.contains("Inventory")){
             inventory.deserializeNBT(provider, tag.getCompound("Inventory"));
         }
     }
