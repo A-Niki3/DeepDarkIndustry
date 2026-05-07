@@ -37,7 +37,7 @@ public class DdiVibrationFurnace extends BaseEntityBlock {
 
     public static final MapCodec<DdiVibrationFurnace> CODEC = simpleCodec(DdiVibrationFurnace::new);
 
-    public DdiThermalGenerator(Properties properties){
+    public DdiVibrationFurnace(Properties properties){
         super(properties.lightLevel(state -> state.getValue(LIT) ? 13 : 0));
         this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(LIT,false));
     }
