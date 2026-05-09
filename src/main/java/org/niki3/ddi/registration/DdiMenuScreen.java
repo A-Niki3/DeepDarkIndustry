@@ -7,6 +7,7 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import org.niki3.ddi.Ddi;
 import org.niki3.ddi.blocks.ThermalGenerator.DdiThermalGeneratorMenu;
+import org.niki3.ddi.blocks.VibrationFurnace.DdiVibrationFurnaceMenu;
 
 public class DdiMenuScreen {
     DdiMenuScreen(){}
@@ -15,5 +16,8 @@ public class DdiMenuScreen {
 
     public static final DeferredHolder<MenuType<?>, MenuType<DdiThermalGeneratorMenu>> THERMAL_GENERATOR = MENUS.register(
             "thermal_generator", () -> IMenuTypeExtension.create(DdiThermalGeneratorMenu::new)
+    );
+    public static final DeferredHolder<MenuType<?>, MenuType<DdiVibrationFurnaceMenu>> VIBRATION_FURNACE = MENUS.register(
+            "vibration_furnace", () -> IMenuTypeExtension.create(DdiVibrationFurnaceMenu::new)
     );
 }
