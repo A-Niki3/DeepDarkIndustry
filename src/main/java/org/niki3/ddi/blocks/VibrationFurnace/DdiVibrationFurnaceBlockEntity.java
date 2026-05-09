@@ -4,10 +4,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.crafting.RecipeInput;
-import net.minecraft.world.item.crafting.RecipeType;
-import net.minecraft.world.item.crafting.SingleRecipeInput;
-import net.minecraft.world.item.crafting.SmeltingRecipe;
+import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
@@ -51,13 +48,13 @@ public class DdiVibrationFurnaceBlockEntity extends BlockEntity {
 
         boolean canCraft = false;
 
-        RecipeInput inventoryInput = new SingleRecipeInput(input);
+        SingleRecipeInput inventoryInput = new SingleRecipeInput(input);
 
-        Optional<SmeltingRecipe> recipe = level.getRecipeManager()
+        Optional<RecipeHolder<SmeltingRecipe>> recipe = level.getRecipeManager()
                 .getRecipeFor(RecipeType.SMELTING, inventoryInput, level);
 
         if(recipe.isPresent()){
-            ItemStack result = recipe.get().assemble(inventoryInput, level.registryAccess());
+            ItemStack result = recipe.get().value().assemble(inventoryInput, level.registryAccess());
 
             if(output.isEmpty()){
                 canCraft = true;
@@ -72,7 +69,7 @@ public class DdiVibrationFurnaceBlockEntity extends BlockEntity {
             be.progress++;
 
             if(be.progress >= MAX_PROGRESS){
-                ItemStack result = recipe.get().assemble(inventoryInput, level.registryAccess());
+                ItemStack result = recipe.get().value().assemble(inventoryInput, level.registryAccess());
 
                 be.inventory.extractItem(0,1,false);
 
