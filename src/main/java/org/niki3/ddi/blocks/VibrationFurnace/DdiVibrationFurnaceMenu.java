@@ -18,12 +18,38 @@ public class DdiVibrationFurnaceMenu extends AbstractContainerMenu {
     private final DdiVibrationFurnaceBlockEntity blockEntity;
     private int energy;
     private int maxEnergy;
+    private int progress;
+    private int maxProgress;
 
     public DdiVibrationFurnaceMenu(int id, Inventory plInv, ItemStackHandler inventory, DdiVibrationFurnaceBlockEntity blockEntity){
         super(DdiMenuScreen.VIBRATION_FURNACE.get(), id);
 
         this.inventory = inventory;
         this.blockEntity = blockEntity;
+
+        addDataSlot(new DataSlot() {
+            @Override
+            public int get() {
+                return blockEntity != null ? blockEntity.getProgress() : 0;
+            }
+
+            @Override
+            public void set(int value) {
+                progress = value;
+            }
+        });
+
+        addDataSlot(new DataSlot() {
+            @Override
+            public int get() {
+                return blockEntity != null ? blockEntity.getProgress() : 0;
+            }
+
+            @Override
+            public void set(int value) {
+                maxProgress = value;
+            }
+        });
 
         addDataSlot(new DataSlot(){
             @Override
@@ -51,7 +77,7 @@ public class DdiVibrationFurnaceMenu extends AbstractContainerMenu {
         // 精錬スロット 微調整必要
         this.addSlot(new SlotItemHandler(inventory, 0, 56, 47));
         // 完成品スロット　微調整必要
-        this.addSlot(new SlotItemHandler(inventory, 0, 61, 49));
+        this.addSlot(new SlotItemHandler(inventory, 1, 61, 49));
 
         // インベントリ
         for(int i = 0; i < 3; i++){
@@ -75,7 +101,7 @@ public class DdiVibrationFurnaceMenu extends AbstractContainerMenu {
     }
 
     public int getMaxEnergy(){
-        return energy;
+        return maxEnergy;
     }
 
     @Override
@@ -87,8 +113,8 @@ public class DdiVibrationFurnaceMenu extends AbstractContainerMenu {
             ItemStack stack = slot.getItem();
             original = stack.copy();
 
-            if (index == 0){
-                if (!this.moveItemStackTo(stack, 1, 37, true)){
+            if (index < 2){
+                if (!this.moveItemStackTo(stack, 2, 38, true)){
                     return ItemStack.EMPTY;
                 }
             }else {
@@ -117,5 +143,13 @@ public class DdiVibrationFurnaceMenu extends AbstractContainerMenu {
 
     public ItemStackHandler getInventory(){
         return inventory;
+    }
+
+    public int getProgress(){
+        return progress;
+    }
+
+    public int getMaxProgress(){
+        return maxProgress;
     }
 }
