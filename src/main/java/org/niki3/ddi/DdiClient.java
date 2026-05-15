@@ -12,6 +12,8 @@ import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 import net.neoforged.neoforge.client.gui.ConfigurationScreen;
 import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
 import org.niki3.ddi.blocks.ThermalGenerator.DdiThermalGeneratorScreen;
+import org.niki3.ddi.blocks.VibrationFurnace.DdiVibrationFurnaceMenu;
+import org.niki3.ddi.blocks.VibrationFurnace.DdiVibrationFurnaceScreen;
 import org.niki3.ddi.registration.DdiMenuScreen;
 
 @Mod(value = Ddi.MODID, dist = Dist.CLIENT)
@@ -25,6 +27,11 @@ public class DdiClient {
         event.register(
                 DdiMenuScreen.THERMAL_GENERATOR.get(),
                 DdiThermalGeneratorScreen::new
+        );
+
+        event.register(
+                DdiMenuScreen.VIBRATION_FURNACE.get(),
+                DdiVibrationFurnaceScreen::new
         );
     }
 
