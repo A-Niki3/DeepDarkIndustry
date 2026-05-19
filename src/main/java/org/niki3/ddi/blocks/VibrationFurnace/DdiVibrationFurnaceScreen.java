@@ -6,7 +6,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.network.chat.Component;
 
-import java.awt.*;
 
 public class DdiVibrationFurnaceScreen extends AbstractContainerScreen<DdiVibrationFurnaceMenu> {
     private static final ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath("ddi","textures/gui/container/作成したメニュー.png");
